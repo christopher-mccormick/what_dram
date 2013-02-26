@@ -1,4 +1,4 @@
-# Django settings for what_dram_project project.
+# Django settings for our what_dram_project project.
 
 import os
 
@@ -122,7 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'dramapp',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
