@@ -6,7 +6,7 @@ from django.db import models
 class Region(models.Model):
 	region = models.CharField(max_length=30)
 
-	def_unicode_(self):
+	def _unicode_(self):
 		return self.region
 
 
@@ -19,7 +19,7 @@ class Distillery(models.Model):
 	website = models.URLField()
 	tourevents = models.CharField(max_length=200)
 
-	def_unicode_(self):
+	def _unicode_(self):
 		return self.name
 
 
@@ -36,7 +36,7 @@ class Whisky(models.Model):
 	website = models.URLField()
 	price = models.DoubleField()
 
-	def_unicode_(self):
+	def _unicode_(self):
 		return self.name
 
 class Member(models.Model):
@@ -47,7 +47,7 @@ class Member(models.Model):
 	password = models.CharField(max_length=32, min_length=8)
 	dob = models.DateField()
 
-	def_unicode_(self):
+	def _unicode_(self):
 		return self.username
 
 class Comments(models.Model):
@@ -55,7 +55,7 @@ class Comments(models.Model):
 	whiskyname = models.ForeignKey(Whisky)
 	username = models.ForeignKey(Member)
 
-	def_unicode_(self):
+	def _unicode_(self):
 		return self.comments
 
 
