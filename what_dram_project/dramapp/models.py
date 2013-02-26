@@ -54,6 +54,9 @@ class Comments(models.Model):
 	whiskyname = models.ForeignKey(Whisky)
 	username = models.ForeignKey(Member)
 
+	def_unicode_(self):
+		return self.comments
+
 
 
 
