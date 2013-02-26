@@ -29,12 +29,12 @@ class Whisky(models.Model):
 	whiskytype = models.CharField(max_length=30)
 	distillery = models.ForeignKey(Distillery)
 	region = models.ForeignKey(Region)
-	rating = models.DoubleField()
+	rating = models.FloatField()
 	tastingnotes = models.CharField(max_length=200)
 	barrelType = models.CharField(max_length=30)
 	image = models.URLField()
 	website = models.URLField()
-	price = models.DoubleField()
+	price = models.FloatField()
 
 	def __unicode__(self):
 		return self.name
