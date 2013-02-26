@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
-	url(r'^dramapp/', include('dramapp.urls')),
+	url(r'^', include('dramapp.urls')),
     # Examples:
     # url(r'^$', 'what_dram_project.views.home', name='home'),
     # url(r'^what_dram_project/', include('what_dram_project.foo.urls')),
@@ -15,6 +15,6 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^dramapp/', include('dramapp.urls')),
+    url(r'^', include('dramapp.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
