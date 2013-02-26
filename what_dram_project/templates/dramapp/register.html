@@ -3,7 +3,7 @@
 <A href="/dramapp/">WhatDram</A> says: thank you for registering.
 {% else %}
 WhatDram says: register here!
-<FORM id="user_form" method="post" action="/dramapp/register/">
+<FORM id="user_form" method="post" action="/register/">
     {% csrf_token %}
     {{ uform.as_p }}
     {{ pform.as_p }}
