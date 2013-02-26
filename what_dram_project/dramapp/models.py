@@ -1,12 +1,13 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Region(models.Model):
 	region = models.CharField(max_length=30)
 
 	def_unicode_(self):
-			return self.region
+		return self.region
 
 
 class Distillery(models.Model):
@@ -19,7 +20,7 @@ class Distillery(models.Model):
 	tourevents = models.CharField(max_length=200)
 
 	def_unicode_(self):
-			return self.name
+		return self.name
 
 
 class Whisky(models.Model):
@@ -36,7 +37,7 @@ class Whisky(models.Model):
 	price = models.DoubleField()
 
 	def_unicode_(self):
-			return self.name
+		return self.name
 
 class Member(models.Model):
 	firstname = models.CharField(max_length=30)
