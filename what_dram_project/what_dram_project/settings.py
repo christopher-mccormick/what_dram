@@ -1,6 +1,11 @@
 # Django settings for our what_dram_project project.
 
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+     'django.core.context_processors.request',
+)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -121,6 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dramapp',
+    #'rating',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
