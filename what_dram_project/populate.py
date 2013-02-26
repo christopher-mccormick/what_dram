@@ -1,5 +1,3 @@
-from dramapp.models import Region, Distillery, Whisky, Member, Comments
+from dramapp.models import Region, Distillery, Whisky, Comments
 
-c = Region(name='region')
-c.save()
-#STUCK!
+

@@ -1,7 +1,33 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django import forms
+from django.forms import ModelForm
 
 
-# Create your models here. STOP BREAKING THIS
+# Create your models here.
+
+class UserProfile(models.Model):
+    # This field is required.
+    user = models.OneToOneField(User)
+    # These fields are optional
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    date_of_birth = models.DateField()
+
+
+    def __unicode__(self):
+        return self.user.username
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["username", "email", "password"]
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'date_of_birth']
 
 class Region(models.Model):
 	region = models.CharField(max_length=30)
@@ -39,24 +65,17 @@ class Whisky(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class Member(models.Model):
-	firstname = models.CharField(max_length=30)
-	lastname = models.CharField(max_length=30)
-	username = models.CharField(max_length=30)
-	email = models.CharField(max_length=30)
-	password = models.CharField(max_length=32)
-	dob = models.DateField()
-
-	def __unicode__(self):
-		return self.username
 
 class Comments(models.Model):
 	comments = models.CharField(max_length=400)
-	whiskyname = models.ForeignKey(Whisky)
-	username = models.ForeignKey(Member)
+	name = models.ForeignKey(Whisky)
+	user = models.ForeignKey(UserProfile)
 
 	def __unicode__(self):
 		return self.comments
+
+
+
 
 
 
