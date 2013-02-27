@@ -5,7 +5,7 @@ from django.forms import ModelForm
 #from ratings.handlers import ratings
 
 
-# Create your models here.
+# Create your models here
 
 class UserProfile(models.Model):
     # This field is required.
