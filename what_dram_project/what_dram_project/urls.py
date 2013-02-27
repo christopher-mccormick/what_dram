@@ -17,5 +17,4 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^', include('dramapp.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^ratings/', include('ratings.urls')),
 )

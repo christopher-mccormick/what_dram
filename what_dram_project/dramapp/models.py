@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
-from ratings.handlers import ratings
 
 # Create your models here
 
@@ -55,7 +54,7 @@ class Whisky(models.Model):
 	whiskytype = models.CharField(max_length=30)
 	distillery = models.ForeignKey(Distillery)
 	region = models.ForeignKey(Region)
-	#rating = ratings.register(Whisky)
+	rating = models.CharField(max_length=30)
 	tastingnotes = models.CharField(max_length=200)
 	barrelType = models.CharField(max_length=30)
 	image = models.URLField()

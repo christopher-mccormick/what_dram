@@ -125,15 +125,6 @@
             <div id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
             <div id="map"><p>View All Whiskies</p></div>
         </div>
-{% load ratings_tags %}
-
-{% get_rating_form for film as rating_form %}
-
-<form action="{% url ratings_vote %}" method="post">
-    {% csrf_token %}
-    {{ rating_form }}
-    <p><input type="submit" value="Vote &rarr;"></p>
-</form>
         <hr />
     </div>
 
