@@ -3,10 +3,6 @@
 import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
-TEMPLATE_CONTEXT_PROCESSORS += (
-     'django.core.context_processors.request',
-)
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -118,6 +114,10 @@ TEMPLATE_DIRS = (
 
 )
 
+TEMPLATE_CONTEXT_PROCESSORS += (
+     'django.core.context_processors.request',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,7 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dramapp',
-    #'rating',
+    'rating',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
