@@ -13,7 +13,27 @@ body
   color: ; 
   position: relative; -webkit-font-smoothing: antialiased; }
 
+/* whisky page */
 
+.panel3 {
+    background: rgba(0,0,0,0.7);
+    margin: 0 40px 50px 0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 250px;
+    height: auto;
+    float: right;
+}
+
+.panel4 {
+    background: rgba(0,0,0,0.7);
+    margin: 0 0 50px 0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 250px;
+    height: 350px;
+    float: left;
+}
 /* new searchbar */
 
 #cssmenu ul { margin: 0; padding: 0;}
