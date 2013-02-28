@@ -38,7 +38,7 @@
       #map_canvas { height: 100% }
     </style>
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=SET_TO_TRUE_OR_FALSE">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6LZtW8sO_PBQBQowj7dndRTh_gOnPWo&sensor=false">
     </script>
     <script type="text/javascript">
       function initialize() {
@@ -55,7 +55,7 @@
     <!-- End of Maps head -->
 
 </head>
-<body>
+<body onload="initialize()">
 
 <!-- Header and Nav -->
 
@@ -150,12 +150,13 @@
 <div class="row seven">
     <div class="ten columns centered">
 
-        <!-- maps code -->
-        <div id="map_canvas" style="width:100%; height:100%"></div>
+        <!-- maps code need to change the size from absolute -->
+        
+        <div id="map_canvas" style="width:670px; height:400px"></div>
+
         <!--div id="regionlist">
-            <iv id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
-            <div id="map"><p>View All Whiskies</p></div>
-        </div-->
+            <div id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
+            <div id="map"><p>View All Whiskies</p></div-->
         <hr />
     </div>
 
