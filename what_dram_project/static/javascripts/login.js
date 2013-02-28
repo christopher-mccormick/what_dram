@@ -3,7 +3,7 @@
 $(document).ready(function() {
     
     
-    $(".login_btn, #login_box").hover(function(){
+    $(".login_btn").hover(function(){
     $("#login_box").fadeIn("fast");
     return true;
     },
