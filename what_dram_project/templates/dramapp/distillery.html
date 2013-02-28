@@ -22,11 +22,37 @@
     <LINK href="{{ STATIC_URL }}css/index/index.css" rel="stylesheet" title="indexstyle" type="text/css" />
 
 
+    <!-- Javascript -->
     <script src="{{ STATIC_URL }}javascripts/modernizr.foundation.js"></script>
 
     <script type="text/javascript" src="{{ STATIC_URL }}javascripts/jquery1.4.2.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}javascripts/jquery-ui-1.8.2.custom.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}javascripts/login.js"></script>
+
+    <!-- Maps head below -->
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=SET_TO_TRUE_OR_FALSE">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+      }
+    </script>
+
+    <!-- End of Maps head -->
 
 </head>
 <body>
@@ -39,7 +65,7 @@
     </div>
     <div id='cssmenu'>
         <ul>
-            <li class='has-sub'><a href='/whisky/'><span>Whiskies</span></a>
+            <li class='has-sub'><a href='../whisky/'><span>Whiskies</span></a>
                 <ul>
                     <li><a href='#'><span>Highlands</span></a></li>
                     <li><a href='#'><span>Lowlands</span></a></li>
@@ -119,12 +145,17 @@
     <hr />
 </div>
 
+<!-- Map panel -->
+
 <div class="row seven">
     <div class="ten columns centered">
-        <div id="regionlist">
-            <div id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
+
+        <!-- maps code -->
+        <div id="map_canvas" style="width:100%; height:100%"></div>
+        <!--div id="regionlist">
+            <iv id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
             <div id="map"><p>View All Whiskies</p></div>
-        </div>
+        </div-->
         <hr />
     </div>
 

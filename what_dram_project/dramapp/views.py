@@ -22,6 +22,12 @@ def whisky(request):
     # render the template using the provided context and return as http response.
     return HttpResponse(template.render(context))
 
+def distillery(request):
+    template = loader.get_template('dramapp/distillery.html')
+    context = RequestContext(request, {})
+    # render the template using the provided context and return as http response.
+    return HttpResponse(template.render(context))
+
 def register(request):
     context = RequestContext(request)
     registered = False
