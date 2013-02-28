@@ -38,8 +38,8 @@ class Region(models.Model):
 class Distillery(models.Model):
 	name = models.CharField(max_length=30)
 	region = models.ForeignKey(Region)
-	longitude = models.IntegerField()
-	latitude = models.IntegerField()
+	latitude = models.FloatField()
+	longitude = models.FloatField()
 	images = models.URLField()
 	website = models.URLField()
 	tourevents = models.CharField(max_length=200)
