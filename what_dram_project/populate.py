@@ -9,6 +9,8 @@ from dramapp.models import Region, Distillery, Whisky
 #File "/Library/Python/2.7/site-packages/django/db/models/fields/related.py", line 366, in __set__
 #self.field.name, self.field.rel.to._meta.object_name))
 #ValueError: Cannot assign "<class 'dramapp.models.Region'>": "Distillery.region" must be a "Region" instance.
+#r = Region(name = 'Islay')
+#r.save()
 
 Region(region = 'Islay',).save()
 Region(region = 'Speyside',).save()
