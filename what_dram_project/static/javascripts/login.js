@@ -1,3 +1,4 @@
+/*
 var mouse_is_inside = false;
 
 $(document).ready(function() {
@@ -20,3 +21,16 @@ $(document).ready(function() {
         if(! mouse_is_inside) $("#login_box").fadeOut("fast");
     });
 });
+*/
+
+$(document).ready(function() {
+    
+    
+    $(".login_btn, #login_box").hover(function(){
+    $("#login_box").fadeIn("fast");
+    return true;
+    },
+    function(){
+        $("#login_box").fadeOut("slow");
+        return false;
+    }); 
