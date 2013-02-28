@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> blah
 
 $(document).ready(function() {
     
