@@ -72,12 +72,13 @@
         '</div>'+
         '</div>';
 
-var infowindow = new google.maps.InfoWindow({
-    content: contentString
-});
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
 
         var marker = new google.maps.Marker({
             position: disLatlng,
+            /*animation: google.maps.Animation.DROP,*/
             map: map,
             icon: image,
             title:"Laphroaig"

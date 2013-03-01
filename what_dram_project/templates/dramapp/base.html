@@ -21,7 +21,7 @@
   <!-- Included CSS Files (Compressed) -->
   <!--<link rel="stylesheet" href="stylesheets/foundation.css">-->
   <!--<link href="stylesheets/styles.css" rel="stylesheet" type="text/css">-->
-  
+  {% block javascripts %}
   <script src="{{ STATIC_URL }}javascripts/modernizr.foundation.js"></script>
 
   <script type="text/javascript" src="{{ STATIC_URL }}javascripts/jquery1.4.2.js"></script>
@@ -34,16 +34,14 @@
 
 </head>
 <body>
-  
-  {% block navbar %}
+
   <!-- Header and Nav -->
-  
+  {% block navbar %}
   <div class="row twelve padded">
     <div class="two columns wrap">
       <h1><IMG SRC="{{ STATIC_URL }}imgs/logo4.png" /></h1>
     </div>
     <div id='cssmenu'>
-      {% block navbar %}
       <ul>
          <li class='has-sub'><a href="/whisky/"><span>Whiskies</span></a>
             <ul>
@@ -90,12 +88,11 @@
       </form>
     </div>
     </div>
-    {% endblock %}
   </div>
   {% endblock %}
 
   <!-- Footer -->
-  
+
   {% block footer %}
   <footer class="row">
     <div class="twelve columns">
@@ -116,6 +113,7 @@
     </div> 
   </footer>
  {% endblock %}
+
 
 </body>
 </html>
