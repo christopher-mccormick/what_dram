@@ -1,15 +1,23 @@
 
-
+var mouse_is_inside = false;
 $(document).ready(function() {
     
     
-    $(".login_btn, #login_box").hover(function(){
-    $("#login_box").fadeIn("fast");
-    },
-    function(){
-        $("#login_box").fadeOut("slow");
+    $(".login_btn, #login_box").mouseenter(function(){
+    $("#login_box").show();
+    mouse_is_inside = true;
+    
     });
+
+    $(".login_btn, #login_box").mouseleave(function(){
+  		$("#login_box").fadeOut("slow");
+  		mouse_is_inside = false;
+  	});
+
+  	
 });
+
+	
 
 //possible soultion??? nope worse
 // $(document).ready(function() {
