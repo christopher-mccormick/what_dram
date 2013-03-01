@@ -4,6 +4,21 @@
 
 {% block content %}
 
+      <!-- Orbit javascript -->
+
+  <!-- Included JS Files (Compressed) -->
+  <script src="{{ STATIC_URL }}javascripts/jquery.js"></script>
+  <script src="{{ STATIC_URL }}javascripts/foundation.min.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="{{ STATIC_URL }}javascripts/app.js"></script>
+
+  <script type="text/javascript">
+     $(window).load(function() {
+         $('#slider').orbit();
+     });
+  </script>
+  
 <!--Orbit pics -->
   
    <div class="row seven">
@@ -85,19 +100,5 @@
   <script src="javascripts/jquery.foundation.magellan.js"></script>
   
   -->
-  <!-- Orbit javascript -->
-
-  <!-- Included JS Files (Compressed) -->
-  <script src="{{ STATIC_URL }}javascripts/jquery.js"></script>
-  <script src="{{ STATIC_URL }}javascripts/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="{{ STATIC_URL }}javascripts/app.js"></script>
-
-  <script type="text/javascript">
-     $(window).load(function() {
-         $('#slider').orbit();
-     });
-  </script>
   
 {% endblock %}
