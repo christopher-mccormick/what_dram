@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <!-- doesnt work for shit -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -21,7 +25,8 @@
   <!-- Included CSS Files (Compressed) -->
   <!--<link rel="stylesheet" href="stylesheets/foundation.css">-->
   <!--<link href="stylesheets/styles.css" rel="stylesheet" type="text/css">-->
-  {% block javascripts %}
+  <title>{% block title %}{% endblock %}</title>
+  <LINK href="{{ STATIC_URL }}css/index/index.css" rel="stylesheet" title="indexstyle" type="text/css" />
   <script src="{{ STATIC_URL }}javascripts/modernizr.foundation.js"></script>
 
   <script type="text/javascript" src="{{ STATIC_URL }}javascripts/jquery1.4.2.js"></script>
@@ -30,16 +35,15 @@
 
   <script type="text/javascript" src="{{ STATIC_URL }}javascripts/login.js"></script>
 
-  {% endblock %}
 
 </head>
 <body>
 
   <!-- Header and Nav -->
-  {% block navbar %}
+  
   <div class="row twelve padded">
     <div class="two columns wrap">
-      <h1><IMG SRC="{{ STATIC_URL }}imgs/logo4.png" /></h1>
+      <h1><a href="../"><span><IMG SRC="{{ STATIC_URL }}imgs/logo4.png" /></span></a></h1>
     </div>
     <div id='cssmenu'>
       <ul>
@@ -89,11 +93,13 @@
     </div>
     </div>
   </div>
-  {% endblock %}
+ 
+
+  {% block content %}{% endblock %}
 
   <!-- Footer -->
 
-  {% block footer %}
+  
   <footer class="row">
     <div class="twelve columns">
       <hr />
@@ -112,7 +118,7 @@
       </div>
     </div> 
   </footer>
- {% endblock %}
+ 
 
 
 </body>
