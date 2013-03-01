@@ -3,13 +3,13 @@ var mouse_is_inside = false;
 $(document).ready(function() {
     
     
-    $(".login_btn, #login_box").mouseenter(function(){
+    $(".login_btn").mouseenter(function(){
     $("#login_box").show();
     mouse_is_inside = true;
     
     });
 
-    $(".login_btn, #login_box").mouseleave(function(){
+    $("#login_box").mouseleave(function(){
   		$("#login_box").fadeOut("slow");
   		mouse_is_inside = false;
   	});
