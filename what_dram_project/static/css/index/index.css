@@ -158,7 +158,7 @@ body
 
 #cssmenu ul ul > li:hover > ul { opacity: 1; left: 196px; visibility: visible;}
 
-
+/* menu mouseover colour */
 #cssmenu ul ul a:hover{
     background-color: #000000;
     color: rgb(240,240,240);
@@ -450,7 +450,7 @@ code {
   position:absolute;
   width:236px;
   padding-left: 30px;
-  margin:40px 0 100px 1030px;
+  margin:50px 0 100px 1030px;
   z-index: 100;
 }
 #tab {
@@ -471,11 +471,10 @@ code {
 
 #login_box_content {
   background:#fff;
-  border-top-right-radius:5px;
-  border-bottom-left-radius:5px;
-  border-bottom-right-radius:5px;
+  border-radius: 5px;
   float:left;
   width:236px;
+  opacity: 1;
 }
 #login_form {
   margin:9px 0 0 9px;
