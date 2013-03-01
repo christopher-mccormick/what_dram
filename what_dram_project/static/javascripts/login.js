@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
 
     $(".login_btn, #login_box").mouseleave(function(){
-  		$("#login_box").fadeOut("slow");
+  		$("#login_box").hide();
   		mouse_is_inside = false;
   	});
 
