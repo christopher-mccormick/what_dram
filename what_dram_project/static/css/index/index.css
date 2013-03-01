@@ -434,7 +434,7 @@ code {
   float:left;
   width:0px;
   height:0px;
-  margin:14px 9px 0 90px;
+  margin:14px 9px 0 100px;
   border-left:10px solid transparent;
   /* left arrow slant */
   border-right:10px solid transparent;
@@ -443,7 +443,7 @@ code {
   /* bottom,add background color here */
   font-size:0px;
   line-height:50px;
-  
+
 }
 
 #login_box {
@@ -451,7 +451,7 @@ code {
   position:absolute;
   width:236px;
   padding-left: 30px;
-  margin:40px 0 100px 960px;
+  margin:40px 0 100px 950px;
   z-index: 100;
 }
 #tab {
