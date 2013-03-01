@@ -13,7 +13,7 @@ rIsland.save()
 rCamp = Region(region = 'Campbeltown',)
 rCamp.save()
 
-d1 = Distillery(name = 'Laphroaig', region = rIslay, latitude = '55.62989', longitude = '6.15202', images = 'test', website = 'http://www.laphroaig.com/', tourevents = 'test',)
+d1 = Distillery(name = 'Laphroaig', region = rIslay, latitude = '55.62989', longitude = '-6.15202', images = 'test', website = 'http://www.laphroaig.com/', tourevents = 'test',)
 d1.save()
 d2 = Distillery(name = 'Ardbeg', region = rIslay, latitude = '55.6404', longitude = '6.1087', images = 'test', website = 'http://www.ardbeg.com/', tourevents = 'test',)
 d2.save()
