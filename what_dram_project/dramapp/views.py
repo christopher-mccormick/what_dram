@@ -5,6 +5,9 @@ from dramapp.models import UserProfile
 from dramapp.models import UserForm, UserProfileForm
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 def index(request):
        # select the appropriate template to use
@@ -52,3 +55,32 @@ def register(request):
         pform = UserProfileForm()
 
     return render_to_response('dramapp/register.html', {'uform': uform, 'pform': pform, 'registered': registered }, context)
+
+def user_login(request):
+    context = RequestContext(request)
+    if request.method == 'POST':
+          username = request.POST['username']
+          password = request.POST['password']
+          user = authenticate(username=username, password=password)
+          if user is not None:
+              if user.is_active:
+                  login(request, user)
+                  # Redirect to index page.
+                  return HttpResponseRedirect("../")
+              else:
+                  # Return a 'disabled account' error message
+                  return HttpResponse("You're account is disabled.")
+          else:
+              # Return an 'invalid login' error message.
+              print  "invalid login details " + username + " " + password
+              return render_to_response('login.html', {}, context)
+    else:
+        # the login is a  GET request, so just show the user the login form.
+        return render_to_response('dramapp/login.html', {}, context)  
+
+@login_required
+def user_logout(request):
+    context = RequestContext(request)
+    logout(request)
+    # Redirect back to index page.
+    return HttpResponseRedirect('../')          

@@ -81,12 +81,23 @@
                     <div class="triangle"></div>
                     <div id="login_box_content"></div>
                     <div id="login_box_content">
-                        <form id="login_form">
+                        <form id="login_form" method="post" action="/login/">
+                           {% csrf_token %}
+                          {% if user.is_authenticated %}
+                          <p1>Welcome to WhatDram {{ user.username }}</p1>
+                          <br />
+                          <br />
+                          <a href='/logout/'>Logout</a>
+                          <br />
+                          <br />
+                          {% else %}
+                          
                             <p1>Login</p1>
-                            <input type="text" placeholder="Username" />
-                            <input type="password" placeholder="Password" />
-                            <input type="submit" value="Login" />
+                            <input type="text" name="username" value="Username" id="username" size="50" placeholder="Username" />
+                            <input type="password" name="password" value="Password" id="password" size="50" placeholder="Password" />
+                            <input type="submit" name="submit" value="Login" />
                             <a href="/register/"><br>Register Here</a>
+                            {% endif %}
                         </form>
                     </div>
                 </div>
