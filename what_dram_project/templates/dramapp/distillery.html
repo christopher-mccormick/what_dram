@@ -6,16 +6,15 @@
 
 <!-- First Panel Row -->
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
-{% block additionaljavascript %}
+{% block content %}
 <!-- Maps head below -->
-
+<head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
       #map_canvas { height: 100% }
     </style>
-    
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6LZtW8sO_PBQBQowj7dndRTh_gOnPWo&sensor=false">
     </script>
@@ -82,9 +81,9 @@
     }
     </script>
     <!-- End of Maps head -->
-{% endblock %}
+</head>
 
-{% block content %}
+<body onload="initialize()">
 <!-- First Panel Row -->
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 
@@ -169,8 +168,6 @@
 
         </div>
 
-
-
     </div>
-
+</body>
 {% endblock %}
