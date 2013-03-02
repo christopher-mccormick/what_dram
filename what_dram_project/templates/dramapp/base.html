@@ -108,7 +108,16 @@
    <div class="panel2">
     <h4>Trending Whiskies</h4>
     <hr />
-    <a href="#" class="panel-links"><span>Glenfiddich</span></a>
+    {% if whisky_list %}
+        <UL>
+        {% for whisky in whisky_list %}
+                <LI><p>{{ whisky.name }}</p></LI>
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
+    <a href="#" class="panel-links"><span>{{whisky_list.name}}</span></a>
     <hr />
     <a href="#" class="panel-links"><span>Talisker</span></a>
     <hr />

@@ -8,14 +8,18 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from dramapp.models import Whisky
 
 def index(request):
        # select the appropriate template to use
         template = loader.get_template('dramapp/index.html')
+        whisky_list = Whisky.objects.all()
+        # Put the data into the context
+        context = RequestContext(request,{ 'whisky_list': whisky_list })
         # create and define the context. We don't have any context at the moment
         # but later on we will be putting data in the context which the template engine
         # will use when it renders the template into a page.
-        context = RequestContext(request, {})
+        
         # render the template using the provided context and return as http response.
         return HttpResponse(template.render(context))
 
@@ -70,10 +74,11 @@ def user_login(request):
               else:
                   # Return a 'disabled account' error message
                   return HttpResponse("You're account is disabled.")
+
           else:
               # Return an 'invalid login' error message.
               print  "invalid login details " + username + " " + password
-              return render_to_response('login.html', {}, context)
+              
     else:
         # the login is a  GET request, so just show the user the login form.
         return render_to_response('dramapp/login.html', {}, context)  
