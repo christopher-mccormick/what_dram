@@ -111,20 +111,14 @@
     {% if whisky_list %}
         <UL>
         {% for whisky in whisky_list %}
-                <LI><p>{{ whisky.name }}</p></LI>
+                <LI><p>{{ whisky.name }} {{whisky.age}} year old</p></LI>
+                <hr />
         {% endfor %}
         </UL>
 {% else %}
         <P>No categories at present.</P>
 {% endif %}
-    <a href="#" class="panel-links"><span>{{whisky_list.name}}</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Talisker</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Jura</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Ardberg</span></a>
-    <hr />
+    
     <a href="#" class="panel-links"><span>Bowmore</span></a>
     <hr />
   </div>
