@@ -1,5 +1,6 @@
 import urllib, urllib2
 import json
+import django.contrib.search
 
 def run_query(search_terms):
     '''Issues a query to the Bing Search API.
