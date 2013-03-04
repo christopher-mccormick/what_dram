@@ -88,4 +88,16 @@ def user_logout(request):
     context = RequestContext(request)
     logout(request)
     # Redirect back to index page.
-    return HttpResponseRedirect('../')          
+    return HttpResponseRedirect('../')  
+
+    from bing_search import run_query
+
+def search(request):
+        context = RequestContext(request)
+        result_list = []
+        if request.method == 'POST':
+            query = request.POST['query'].strip()
+            if query:
+                result_list = run_query(query)
+
+        return render_to_response('dramapp/search.html',{ 'result_list': result_list }, context)        
