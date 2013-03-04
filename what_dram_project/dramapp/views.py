@@ -9,6 +9,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from dramapp.models import Whisky
+from django.db.models import Q
+import re
+
+
 
 def index(request):
        # select the appropriate template to use
@@ -134,3 +138,21 @@ def encode_whisky(whisky_name):
 def decode_whisky(whisky_url):
         # returns the category name given the category url portion
         return whisky_url.replace('_',' ')
+
+
+
+def search(request):
+    query = request.GET.get('q', '')
+    if query:
+        qset = (
+            Q(name__icontains=query) |
+            Q(age__icontains=query) |
+            Q(barrelType__icontains=query)
+    )
+        results = Whisky.objects.filter(qset).distinct()
+    else:
+        results = []
+    return render_to_response("dramapp/search.html", {
+        "results": results,
+        "query": query
+         })

@@ -1,9 +1,15 @@
-<FORM id="search_form" method="post" action="/search/">
+<!--<FORM id="search_form" method="post" action="/search/">
         {% csrf_token %}
         Search:
         <INPUT type="text" size="50" name="query" value="" id="query">
         <INPUT type="submit" name="submit" value="submit" />
-</FORM>
+</FORM>-->
+
+<!--<form method="get" action="/search/">
+	<p><label for="id_q">Search:</label>
+		<input type="text" name="q" id="id_q"/>
+		<input type="submit" value="Submit" /></p>
+</form>
 
 {% if result_list %}
         {% for result in result_list %}
@@ -13,3 +19,37 @@
         {% endfor %}
 
 {% endif %}
+
+<body>
+	<p> you searched for "{{ query}}"; the results are listed below.</p>
+	<ul>
+		{% for whisky in results %}
+		<li><a href="{{ whisky.get_absolute_url }}">{{ whisky.name}}</a></li>
+		{% endfor %}
+	</ul>
+</body>-->
+
+<form action="." method="GET">
+          
+
+<label for="q">Search:</label>
+           <input type="text" name="q" value"{{ query|escape}}">
+           <input type="submit" value="Search">
+
+</form>
+
+{% if query %}
+<h2>Results for "{{ query|escape }}":</h2>
+
+{% if results %}
+<ul>
+	{% for whisky in results %}
+	<li>{{whisky}}</li>
+	{% endfor %}
+	{% else %}
+	<p> no whiskies found </p>
+	{% endif %}
+	{% endif %}
+
+       
+

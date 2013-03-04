@@ -72,3 +72,6 @@ class Comments(models.Model):
 
 	def __unicode__(self):
 		return self.comments
+
+class Search(models.Model):
+  query = forms.CharField(max_length=30, required=False)
