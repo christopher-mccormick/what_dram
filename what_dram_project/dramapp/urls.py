@@ -6,7 +6,7 @@ from dramapp import views
 
 whisky_info = {
     'queryset': Whisky.objects.all(),
-    'template_name': 'whisky_list_page.html',
+    'template_name': 'dramapp/whisky.html',
     'template_object_name': 'whisky',
     #need to append age
 }
