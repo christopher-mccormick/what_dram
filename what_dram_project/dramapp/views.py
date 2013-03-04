@@ -16,7 +16,7 @@ def index(request):
         whisky_list = Whisky.objects.all()
         # add the cat_url data to each category
         for whisky in whisky_list:
-            whisky_name = whisky.name
+            whisky_name = whisky.name + whisky.age
             whisky.url = encode_whisky(whisky_name)
         # Put the data into the context
         context = RequestContext(request,{ 'whisky_list': whisky_list })

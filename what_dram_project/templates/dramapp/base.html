@@ -112,7 +112,7 @@
     {% if whisky_list %}
         <UL>
         {% for whisky in whisky_list %}
-                <LI><p>{{ whisky.name }}  | {{whisky.age}} year old</p></LI>
+                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ whisky.name }}  | {{whisky.age}} year old</p></a></Li>
                 <hr />
         {% endfor %}
         </UL>
@@ -144,9 +144,7 @@
 
 
 {% block content %}{% endblock %}
-   {% for whisky in whisky_list %}
-        <LI><A HREF="/whisky/{{whisky.url}}">{{whisky.name}}</A></LI>
-  {% endfor %}
+   
 
   <!-- Footer -->
 
