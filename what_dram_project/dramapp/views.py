@@ -101,3 +101,23 @@ def search(request):
                 result_list = run_query(query)
 
         return render_to_response('dramapp/search.html',{ 'result_list': result_list }, context)        
+
+
+def user_page(request, username):
+  output = '''
+  <html>
+    <head>
+      <title>
+      User pages
+      </title>
+    </head>
+    <body>
+      <h1>
+      User pages
+      </h1>
+      You have reached %s's page.
+      </body>
+    </html>''' % (
+      username
+    )
+  return HttpResponse(output)

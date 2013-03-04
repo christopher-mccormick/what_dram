@@ -5,9 +5,9 @@ from django.views.generic import list_detail
 from dramapp import views
 
 whisky_info = {
-    'queryset': Whisky.objects.all(),
-    'template_name': 'dramapp/whisky.html',
-    'template_object_name': 'whisky',
+    "queryset" : Whisky.objects.all(),
+    #'template_name': 'dramapp/whisky.html',
+    #'template_object_name': 'whisky',
     #need to append age
 }
 
@@ -20,6 +20,8 @@ urlpatterns = patterns('',
         url(r'^login/$', views.user_login, name='login'),
         url(r'^logout/$', views.user_logout, name='logout'),
         url(r'^search/$', views.search, name='search'),
+        #url(r'^whisky/$', views.whisky, { 'whisky_list': whisky }),
+        #url(r'^whisky/%s$', views.a_whisky, name='a_whisky' % )
         
       
 )
