@@ -6,13 +6,9 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 {% block content %}
 
-<ul>
-        {% for publisher in object_list %}
-            <li>{{ whisky.name }}</li>
-        {% endfor %}
-</ul>
-
-<H2>{{whisky_name}}</H2>
+    {% for whisky in whisky_list %}
+        <H2> {{ whisky.name }}  | {{whisky.age}} year old</H2>
+    {% endfor %}
 
 {% if whisky_page %}
         <UL>
