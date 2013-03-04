@@ -63,7 +63,7 @@ class Whisky(models.Model):
 
 	def __unicode__(self):
 		return self.name
-
+		
 
 class Comments(models.Model):
 	comments = models.CharField(max_length=400)

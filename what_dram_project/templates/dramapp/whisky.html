@@ -6,6 +6,12 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 {% block content %}
 
+<ul>
+        {% for publisher in object_list %}
+            <li>{{ whisky.name }}</li>
+        {% endfor %}
+</ul>
+
 <div class="row seven">
     <div class="ten columns centered">
         <div id="regionlist">
