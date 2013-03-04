@@ -125,6 +125,7 @@
   </div>
 
 
+
   <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
@@ -140,7 +141,12 @@
     <hr />
   </div>
 
-  {% block content %}{% endblock %}
+
+
+{% block content %}{% endblock %}
+   {% for whisky in whisky_list %}
+        <LI><A HREF="/whisky/{{whisky.url}}">{{whisky.name}}</A></LI>
+  {% endfor %}
 
   <!-- Footer -->
 

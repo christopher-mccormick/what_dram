@@ -14,6 +14,10 @@ def index(request):
        # select the appropriate template to use
         template = loader.get_template('dramapp/index.html')
         whisky_list = Whisky.objects.all()
+        # add the cat_url data to each category
+        for whisky in whisky_list:
+            whisky_name = whisky.name
+            whisky.url = encode_whisky(whisky_name)
         # Put the data into the context
         context = RequestContext(request,{ 'whisky_list': whisky_list })
         # create and define the context. We don't have any context at the moment
@@ -103,21 +107,28 @@ def search(request):
         return render_to_response('dramapp/search.html',{ 'result_list': result_list }, context)        
 
 
-def user_page(request, username):
-  output = '''
-  <html>
-    <head>
-      <title>
-      User pages
-      </title>
-    </head>
-    <body>
-      <h1>
-      User pages
-      </h1>
-      You have reached %s's page.
-      </body>
-    </html>''' % (
-      username
-    )
-  return HttpResponse(output)
+def whisky(request, whisky_name_url):
+        template = loader.get_template('dramapp/whisky.html')
+
+        whisky_name = decode_whisky(whisky_name_url)
+        context_dict = {'whisky_name_url': whisky_name_url,
+                                'whisky_name': whisky_name}
+        # Select the Category object given its name.
+        # In models, we defined name to be unique,
+        # so there so only be one, if one exists.
+        whisky_list = Whisky.objects.filter(name=whisky_name)
+        if whisky:
+                # selects all the pages associated with the selected category
+                whisky_page = Whisky.objects.all()
+                context_dict['whisky_page'] = whisky_page
+
+        context = RequestContext(request, context_dict)
+        return HttpResponse(template.render(context))
+
+def encode_whisky(whisky_name):
+        # returns the name converted for insert into url
+        return whisky_name.replace(' ','_')
+
+def decode_whisky(whisky_url):
+        # returns the category name given the category url portion
+        return whisky_url.replace('_',' ')
