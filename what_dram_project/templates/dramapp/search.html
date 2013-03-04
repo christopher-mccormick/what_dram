@@ -28,15 +28,12 @@
 		{% endfor %}
 	</ul>
 </body>-->
-
-<form action="." method="GET">
-          
-
-<label for="q">Search:</label>
+<form action="." method="GET" target='_top'>
+          <label for="q">Search:</label>
            <input type="text" name="q" value"{{ query|escape}}">
-           <input type="submit" value="Search">
+         <input id='search-button' type="submit" value="Search">
+      </form>
 
-</form>
 
 {% if query %}
 <h2>Results for "{{ query|escape }}":</h2>
@@ -44,7 +41,7 @@
 {% if results %}
 <ul>
 	{% for whisky in results %}
-	<li>{{whisky}}</li>
+	<li><a href="/whisky/{{whisky.name}}{{whisky.age}}.html">{{whisky}}</a></li>
 	{% endfor %}
 	{% else %}
 	<p> no whiskies found </p>
