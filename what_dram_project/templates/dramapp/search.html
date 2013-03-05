@@ -1,3 +1,5 @@
+
+
 <!--<FORM id="search_form" method="post" action="/search/">
         {% csrf_token %}
         Search:
@@ -28,11 +30,12 @@
 		{% endfor %}
 	</ul>
 </body>-->
-<form action="." method="GET" target='_top'>
+
+<!--<form action="." method="GET" target='_top'>
           <label for="q">Search:</label>
            <input type="text" name="q" value"{{ query|escape}}">
          <input id='search-button' type="submit" value="Search">
-      </form>
+      </form>-->
 
 
 {% if query %}
@@ -48,5 +51,5 @@
 	{% endif %}
 	{% endif %}
 
-       
+   
 
