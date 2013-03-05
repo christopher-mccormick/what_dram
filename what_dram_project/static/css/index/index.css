@@ -41,22 +41,22 @@ body
 #cssmenu a { margin: 0; padding: 0;}
 #cssmenu ul {list-style: none;}
 #cssmenu a {text-decoration: none;}
+/* main menu bar */ 
 #cssmenu {
     height: 50px; 
-    background-color: 
-    rgb(35,35,35); 
-    box-shadow: 0px 2px 3px 
-    rgba(0,0,0,.4);
+    background-color: rgb(35,35,35); 
+    box-shadow: 0px 2px 3px rgba(0,0,0,.4);
 }
 
-
+/* submenus position */
 #cssmenu > ul > li {
     float: left;
-    margin-left: 15px;
+    margin-left: 5px;
     position: relative;
     z-index: 100;
 }
 
+/* main menu */
 #cssmenu > ul > li > a {
     color: rgb(250,250,250);
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -71,18 +71,20 @@ body
 
 #cssmenu > ul > li > a:hover {color: rgb(160,160,160); }
 
-
+/* submenus top and bottom curved edges */
 #cssmenu > ul > li > ul {
     opacity: 0;
     visibility: hidden;
-    padding: 16px 0 20px 0;
+    /* top - right - bottom - left*/
+    padding: 16px 0 16px 0;
     background-color: rgb(250,250,250);
     text-align: left;
     position: absolute;
     top: 55px;
     left: 50%;
+    /* placement left-to-right */
     margin-left: -90px;
-    width: 180px;
+    width: 150px;
 -webkit-transition: all .3s .1s;
    -moz-transition: all .3s .1s;
      -o-transition: all .3s .1s;
@@ -101,6 +103,7 @@ body
     visibility: visible;
 }
 
+/* triangle */
 #cssmenu > ul > li > ul:before{
     content: '';
     display: block;
@@ -116,6 +119,7 @@ body
 
 #cssmenu > ul ul > li { position: relative;}
 
+/* submenu rectangle */
 #cssmenu ul ul a{
     color: rgb(50,50,50);
     font-family: Verdana, 'Lucida Grande';
@@ -131,14 +135,14 @@ body
 
 #cssmenu ul ul a:hover {background-color: rgb(240,240,240);}
 
-
+/* sub submenu */
 #cssmenu ul ul ul {
     visibility: hidden;
     opacity: 0;
     position: absolute;
     top: -16px;
     left: 206px;
-    padding: 16px 0 20px 0;
+    padding: 10px 0 10px 0;
     background-color: rgb(250,250,250);
     text-align: left;
     width: 160px;
@@ -152,7 +156,8 @@ body
 -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
    -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
         box-shadow: 0px 1px 3px rgba(0,0,0,.4);
-    
+    /* to move submenus closer together */
+    margin-left: -30px;
 }
 
 
