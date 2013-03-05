@@ -129,15 +129,16 @@
   <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
-    <a href="#" class="panel-links"><span>Glenfiddich</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Talisker</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Jura</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Ardberg</span></a>
-    <hr />
-    <a href="#" class="panel-links"><span>Bowmore</span></a>
+    {% if distillery_list %}
+        <UL>
+        {% for distillery in distillery_list %}
+                <Li><a HREF="/distillery/{{distillery.url}}"><p>{{ distillery.name }}</p></a></Li>
+                <hr />
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
     <hr />
   </div>
 

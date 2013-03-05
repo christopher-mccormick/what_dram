@@ -6,7 +6,7 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 {% block content %}
 
-        <H2> {{ whisky_name }}  {{whisky.age}} year old</H2>
+        <H2> {{ whisky_name }} year old</H2>
 
 
 {% if whisky_page %}
@@ -27,6 +27,8 @@
         </div>
         <hr />
     </div>
+
+    <h4>{{ whisky.age}}</h4>
 
     <!-- Three-up Content Blocks -->
 

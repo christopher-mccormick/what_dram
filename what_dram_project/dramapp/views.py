@@ -8,7 +8,8 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from dramapp.models import Whisky
+from dramapp.models import Whisky 
+from dramapp.models import Distillery
 from django.db.models import Q
 import re
 
@@ -20,11 +21,11 @@ def index(request):
         whisky_list = Whisky.objects.all()
         # add the cat_url data to each category
         for whisky in whisky_list:
-            whisky_title = whisky.name
             whisky_name = whisky.name + whisky.age
             whisky.url = encode_whisky(whisky_name)
         # Put the data into the context
         context = RequestContext(request,{ 'whisky_list': whisky_list })
+        
         # create and define the context. We don't have any context at the moment
         # but later on we will be putting data in the context which the template engine
         # will use when it renders the template into a page.
@@ -39,9 +40,15 @@ def whisky(request):
     # render the template using the provided context and return as http response.
     return HttpResponse(template.render(context))
 
+
 def distillery(request):
     template = loader.get_template('dramapp/distillery.html')
-    context = RequestContext(request, {})
+    distillery_list = Distillery.objects.all()
+    for distillery in distillery_list:
+        distillery_name = distillery.name
+        distillery.url = encode_distillery(distillery_name)
+        # Put the data into the context
+    context = RequestContext(request,{ 'distillery_list': distillery_list }) 
     # render the template using the provided context and return as http response.
     return HttpResponse(template.render(context))
 
@@ -156,3 +163,29 @@ def search(request):
         "results": results,
         "query": query
          })
+
+def distilleries_list(request, distillery_name_url):
+        template = loader.get_template('dramapp/distillery.html')
+
+        distillery_name = decode_distillery(distillery_name_url)
+        context_dict = {'distillery_name_url': distillery_name_url,
+                                'distillery_name': distillery_name}
+        # Select the Category object given its name.
+        # In models, we defined name to be unique,
+        # so there so only be one, if one exists.
+        distillery_list = Distillery.objects.filter(name=distillery_name)
+        if distillery:
+                # selects all the pages associated with the selected category
+                distillery_page = Distillery.objects.all()
+                context_dict['distillery_page'] = distillery_page
+
+        context = RequestContext(request, context_dict)
+        return HttpResponse(template.render(context))
+
+def encode_distillery(distillery_name):
+        # returns the name converted for insert into url
+        return distillery_name.replace(' ','_')
+
+def decode_distillery(distillery_url):
+        # returns the category name given the category url portion
+        return distillery_url.replace('_',' ')
