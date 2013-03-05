@@ -75,29 +75,30 @@ class Comments(models.Model):
 class Search(models.Model):
   query = forms.CharField(max_length=30, required=False)
 
-class Rating(models.Model)
-	STAR_1 = 1
-	STAR_2 = 2
-	STAR_3 = 3
-	STAR_4 = 4
-	STAR_5 = 5
-	RATING_CHOICES = ((STAR_1, '1 Star')
-						(STAR_2, '2 Stars')
-						(STAR_3, '3 Stars')
-						(STAR_4, '4 Stars')
-						(STAR_5, '5 Stars'))
-	whisky = models.ForeignKey(Whisky)
-	user = models.ForeignKey(UserProfile)
-	rating = models.IntegerField(choices = RATING_CHOICES)
-	date = models.DateTimeField()
-
-	def __unicode__(self):
-		return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_disply())
-
-	def save(self):
-		if not self.if:
-			self.date = datetime.datetime.now()
-		super(Rating, self).save()
-
-	def get_score(self):
-		return sum([r['rating'] for r in self.rating_set.vales('rating')])
+#class Rating(models.Model)
+#	STAR_1 = 1
+#	STAR_2 = 2
+#	STAR_3 = 3
+#	STAR_4 = 4
+#	STAR_5 = 5
+#	RATING_CHOICES = ((STAR_1, '1 Star')
+#						(STAR_2, '2 Stars')
+#						(STAR_3, '3 Stars')
+#						(STAR_4, '4 Stars')
+#						(STAR_5, '5 Stars'))
+#	whisky = models.ForeignKey(Whisky)
+#	user = models.ForeignKey(UserProfile)
+#	rating = models.IntegerField(choices = RATING_CHOICES)
+#	date = models.DateTimeField()
+#
+#	def __unicode__(self):
+#		return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_disply())
+#
+#	def save(self):
+#		if not self.if:
+#			self.date = datetime.datetime.now()
+#		super(Rating, self).save()
+#
+#	def get_score(self):
+#		return sum([r['rating'] for r in self.rating_set.vales('rating')])
+#
