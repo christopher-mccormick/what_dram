@@ -54,7 +54,7 @@ class Whisky(models.Model):
 	whiskytype = models.CharField(max_length=30)
 	distillery = models.ForeignKey(Distillery)
 	region = models.ForeignKey(Region)
-	rating = models.CharField(max_length=30)
+	rating = models.ForeignKey(Rating)
 	tastingnotes = models.CharField(max_length=200)
 	barrelType = models.CharField(max_length=30)
 	image = models.URLField()
@@ -64,7 +64,6 @@ class Whisky(models.Model):
 	def __unicode__(self):
 		return self.name
 		
-
 class Comments(models.Model):
 	comments = models.CharField(max_length=400)
 	name = models.ForeignKey(Whisky)
@@ -100,3 +99,5 @@ class Rating(models.Model)
 			self.date = datetime.datetime.now()
 		super(Rating, self).save()
 
+	def get_score(self):
+		return sum([r['rating'] for r in self.rating_set.vales('rating')])
