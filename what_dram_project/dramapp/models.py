@@ -54,7 +54,7 @@ class Whisky(models.Model):
 	whiskytype = models.CharField(max_length=30)
 	distillery = models.ForeignKey(Distillery)
 	region = models.ForeignKey(Region)
-	rating = models.ForeignKey(Rating)
+	#rating = models.ForeignKey(Rating)
 	tastingnotes = models.CharField(max_length=200)
 	barrelType = models.CharField(max_length=30)
 	image = models.URLField()
