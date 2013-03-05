@@ -52,7 +52,7 @@
 <ul>
    <li class='has-sub'><a><span>Whiskies</span></a>
       <ul>
-         <li class='has-sub'><a href='#'><span>Highlands</span></a>
+         <li class='has-sub'><a href='#'><span>Highland</span></a>
             <ul>
                <li><a href='#'><span>Balblair</span></a></li>
                <li><a href='#'><span>Eradour</span></a></li>
@@ -71,12 +71,12 @@
                <li class='last'><a href='#'><span>Laphroaig</span></a></li>
             </ul>
          </li>
-         <li class='last'><a href='#'><span>Islands</span></a>
+         <li class='last'><a href='#'><span>Island</span></a>
             <ul>
                <li class='last'><a href='#'><span>Highland Park</span></a></li>
             </ul>
          </li>
-         <li class='last'><a href='#'><span>Lowlands</span></a>
+         <li class='last'><a href='#'><span>Lowland</span></a>
             <ul>
                <li><a href='#'><span>Auchentoshan</span></a></li>
                <li class='last'><a href='#'><span>Glenkinshie</span></a></li>
@@ -90,9 +90,9 @@
          </li>
       </ul>
    </li>
-   <li class='has-sub'><a><span>Distilleries</span></a>
+   <li class='has-sub'><a href='/distillery'><span>Distilleries</span></a>
       <ul>
-         <li class='has-sub'><a href='#'><span>Highlands</span></a>
+         <li class='has-sub'><a href='#'><span>Highland</span></a>
             <ul>
                <li><a href='#'><span>Balblair</span></a></li>
                <li><a href='#'><span>Eradour</span></a></li>
@@ -105,12 +105,12 @@
                <li class='last'><a href='#'><span>Laphroaig</span></a></li>
             </ul>
          </li>
-         <li class='last'><a href='#'><span>Islands</span></a>
+         <li class='last'><a href='#'><span>Island</span></a>
             <ul>
                <li class='last'><a href='#'><span>Highland Park</span></a></li>
             </ul>
          </li>
-         <li class='last'><a href='#'><span>Lowlands</span></a>
+         <li class='last'><a href='#'><span>Lowland</span></a>
             <ul>
                <li><a href='#'><span>Auchentoshan</span></a></li>
                <li class='last'><a href='#'><span>Glenkinshie</span></a></li>
@@ -176,9 +176,7 @@
 {% else %}
         <P>No categories at present.</P>
 {% endif %}
-    
-    <a href="#" class="panel-links"><span>Bowmore</span></a>
-    <hr />
+
   </div>
 
 
@@ -186,10 +184,10 @@
   <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
-    {% if distillery_list %}
+    {% if whisky_list %}
         <UL>
-        {% for distillery in distillery_list %}
-                <Li><a HREF="/distillery/{{distillery.url}}"><p>{{ distillery.name }}</p></a></Li>
+        {% for whisky in whisky_list %}
+                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ whisky.name }}  | {{whisky.age}} year old</p></a></Li>
                 <hr />
         {% endfor %}
         </UL>
