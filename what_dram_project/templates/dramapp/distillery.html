@@ -88,7 +88,7 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 
 <!-- Map panel -->
-<h4> {{ distillery_name }} </h4>
+<h4> {{ distillery.name }} </h4>
 
 <div class="row seven">
     <div class="ten columns centered">
@@ -140,9 +140,9 @@
  <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
-    {% if distillery_list %}
+    {% if distillery_archive %}
         <UL>
-        {% for distillery in distillery_list %}
+        {% for distillery in distillery_archive %}
                 <Li><a HREF="/distillery/{{distillery.url}}"><p>{{ distillery.name }}</p></a></Li>
                 <hr />
         {% endfor %}

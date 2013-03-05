@@ -191,3 +191,8 @@ def encode_distillery(distillery_name):
 def decode_distillery(distillery_url):
         # returns the category name given the category url portion
         return distillery_url.replace('_',' ')
+
+def distillery_archive(request):
+        d_list = Distillery.objects.all()
+
+        return render_to_response("dramapp/distillery.html", {'d_list': d_list})
