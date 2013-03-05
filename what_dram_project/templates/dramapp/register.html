@@ -1,13 +1,25 @@
-<BODY>
-{% if registered %}
-<A href="../">WhatDram</A> says: thank you for registering.
-{% else %}
-WhatDram says: register here!
-<FORM id="user_form" method="post" action="/register/">
-    {% csrf_token %}
-    {{ uform.as_p }}
-    {{ pform.as_p }}
-    <INPUT type="submit" name="submit" value="submit" />
-</FORM>
+{% extends 'dramapp/base.html' %}
+
+
+    
+{% block title %}WhatDram | Register{% endblock %}
+
+{% block content %}
+	<div class="row seven">
+    <div class="ten columns centered">
+        <div style="color: #fff" id="registerform">
+            {% if registered %}
+				<A href="../">WhatDram</A>: thank you for registering.
+			{% else %}
+				Register Now:
+					<FORM id="user_form" method="post" action="/register/">
+    					{% csrf_token %}
+    					{{ uform.as_p }}
+    					{{ pform.as_p }}
+    					<INPUT type="submit" name="submit" value="submit" />
+					</FORM>
 {% endif %}
-</BODY>
+        </div>
+        <hr />
+    </div>
+{% endblock %}
