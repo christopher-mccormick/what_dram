@@ -59,7 +59,7 @@
             /*animation: google.maps.Animation.DROP,*/
             map: map,
             icon: image,
-            title:"Laphroaig"
+            title: "{{ distillery_name }}"
         });
 
         google.maps.event.addListener(marker, 'click', function() {
@@ -88,6 +88,7 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 
 <!-- Map panel -->
+<h4> {{ distillery_name }} </h4>
 
 <div class="row seven">
     <div class="ten columns centered">
