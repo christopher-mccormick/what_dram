@@ -25,6 +25,8 @@ def index(request):
             whisky.url = encode_whisky(whisky_name)
         # Put the data into the context
         context = RequestContext(request,{ 'whisky_list': whisky_list })
+        distillery_list = Distillery.objects.all()
+        context = RequestContext(request,{ 'distillery_list': distillery_list, 'whisky_list': whisky_list })
         
         # create and define the context. We don't have any context at the moment
         # but later on we will be putting data in the context which the template engine
@@ -33,7 +35,7 @@ def index(request):
         # render the template using the provided context and return as http response.
         return HttpResponse(template.render(context))
 
-def whisky(request):
+def whisky_list(request):
     template = loader.get_template('dramapp/whisky.html')
     whisky_list = Whisky.objects.all()
     context = RequestContext(request,{ 'whisky_list': whisky_list })

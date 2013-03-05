@@ -184,10 +184,10 @@
   <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
-    {% if whisky_list %}
+    {% if distillery_list %}
         <UL>
-        {% for whisky in whisky_list %}
-                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ whisky.name }}  | {{whisky.age}} year old</p></a></Li>
+        {% for distillery in distillery_list %}
+                <Li><a HREF="/distillery/{{distillery.url}}"><p>{{ distillery.name }}</p></a></Li>
                 <hr />
         {% endfor %}
         </UL>
