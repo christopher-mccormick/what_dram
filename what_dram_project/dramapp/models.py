@@ -36,6 +36,10 @@ class Region(models.Model):
 
 
 class Distillery(models.Model):
+<<<<<<< HEAD
+=======
+	id = models.AutoField(primary_key=True)
+>>>>>>> don't use
 	name = models.CharField(max_length=30)
 	region = models.ForeignKey(Region)
 	latitude = models.FloatField()
@@ -49,12 +53,16 @@ class Distillery(models.Model):
 
 
 class Whisky(models.Model):
+<<<<<<< HEAD
+=======
+	id = models.AutoField(primary_key=True)
+>>>>>>> don't use
 	name = models.CharField(max_length=30)
 	age = models.CharField(max_length=30)
 	whiskytype = models.CharField(max_length=30)
 	distillery = models.ForeignKey(Distillery)
 	region = models.ForeignKey(Region)
-	#rating = models.ForeignKey(Rating)
+	rating = models.CharField(max_length=5)
 	tastingnotes = models.CharField(max_length=200)
 	barrelType = models.CharField(max_length=30)
 	image = models.URLField()
