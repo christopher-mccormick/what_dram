@@ -132,17 +132,12 @@
             </li>
         </div>
 
-        <div class="panel4 rounded">
-
-            <h4>Search</h4>
-
-        </div>
- <div class="panel1">
+        <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
-    {% if distillery_archive %}
+    {% if distillery_data %}
         <UL>
-        {% for distillery in distillery_archive %}
+        {% for distillery in distillery_data %}
                 <Li><a HREF="/distillery/{{distillery.url}}"><p>{{ distillery.name }}</p></a></Li>
                 <hr />
         {% endfor %}

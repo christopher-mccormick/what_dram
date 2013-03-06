@@ -35,6 +35,12 @@ def index(request):
         # render the template using the provided context and return as http response.
         return HttpResponse(template.render(context))
 
+def base(request):
+        template = loader.get_template('dramapp/base.html')
+        whisky_data = Whisky.objects.all()
+        distillery_data = Distillery.objects.all()
+        context = RequestContext(request, { 'distillery_data': distillery_data, 'whisky_data': whisky_data })
+
 def whisky_list(request):
     template = loader.get_template('dramapp/whisky.html')
     whisky_list = Whisky.objects.all()
