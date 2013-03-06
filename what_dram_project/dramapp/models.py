@@ -36,6 +36,7 @@ class Region(models.Model):
 
 
 class Distillery(models.Model):
+	id = models.IntegerField(max_length=3)
 	name = models.CharField(max_length=30)
 	region = models.ForeignKey(Region)
 	latitude = models.FloatField()
@@ -49,6 +50,7 @@ class Distillery(models.Model):
 
 
 class Whisky(models.Model):
+	id = models.IntegerField(max_length=4)
 	name = models.CharField(max_length=30)
 	age = models.CharField(max_length=30)
 	whiskytype = models.CharField(max_length=30)
