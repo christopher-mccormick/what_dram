@@ -200,7 +200,8 @@ def decode_distillery(distillery_url):
         return distillery_url.replace('_',' ')
 
 def distillery_archive(request, distillery_name_url):
-       
-        context = Distillery.objects.all()
+        distillery_archive = Distillery.objects.all()
+        for distillery in distillery_archive:
+            distillery_latitude = distillery.latitude
 
-        return render_to_response("dramapp/distillery.html", context)
+        return render_to_response("dramapp/distillery.html", { 'distillery_archive': distillery_archive })
