@@ -34,32 +34,32 @@ class Region(models.Model):
 	def __unicode__(self):
 		return self.region
 
-class Rating(models.Model):
-	STAR_1 = 1
-	STAR_2 = 2
-	STAR_3 = 3
-	STAR_4 = 4
-	STAR_5 = 5
-	RATING_CHOICES = ((STAR_1, '1 Star')
-						(STAR_2, '2 Stars')
-						(STAR_3, '3 Stars')
-						(STAR_4, '4 Stars')
-						(STAR_5, '5 Stars'))
-	whisky = models.ForeignKey(Whisky)
-	user = models.ForeignKey(UserProfile)
-	rating = models.IntegerField(choices = RATING_CHOICES)
-	date = models.DateTimeField()
+#class Rating(models.Model):
+#	STAR_1 = 1
+#	STAR_2 = 2
+#	STAR_3 = 3
+#	STAR_4 = 4
+#	STAR_5 = 5
+#	RATING_CHOICES = ((STAR_1, '1 Star')
+#						(STAR_2, '2 Stars')
+#						(STAR_3, '3 Stars')
+#						(STAR_4, '4 Stars')
+#						(STAR_5, '5 Stars'))
+#	whisky = models.ForeignKey(Whisky)
+#	user = models.ForeignKey(UserProfile)
+#	rating = models.IntegerField(choices = RATING_CHOICES)
+#	date = models.DateTimeField()
 
-	def __unicode__(self):
-		return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_disply())
+#	def __unicode__(self):
+#		return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_disply())
 
-	def save(self):
-		if not self.id:
-			self.date = datetime.datetime.now()
-		super(Rating, self).save()
+#	def save(self):
+#		if not self.id:
+#			self.date = datetime.datetime.now()
+#		super(Rating, self).save()
 
-	def get_score(self):
-		return sum(self.rating_set.vales('rating', flat = True))
+#	def get_score(self):
+#		return sum(self.rating_set.vales('rating', flat = True))
 
 class Distillery(models.Model):
 	id = models.AutoField(primary_key=True)
@@ -82,7 +82,8 @@ class Whisky(models.Model):
 	whiskytype = models.CharField(max_length=30)
 	distillery = models.ForeignKey(Distillery)
 	region = models.ForeignKey(Region)
-	rating = models.ForeignKey(Rating)
+#	rating = models.ForeignKey(Rating)
+	rating = models.CharField(max_length=5)
 	tastingnotes = models.CharField(max_length=200)
 	barrelType = models.CharField(max_length=30)
 	image = models.URLField()
