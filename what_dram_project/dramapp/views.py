@@ -44,8 +44,6 @@ def base(request):
 def whisky_list(request):
     template = loader.get_template('dramapp/whisky.html')
     whisky_list = Whisky.objects.all()
-    for whisky in whisky_list:
-        whisky_age = whisky.age
     context = RequestContext(request,{ 'whisky_list': whisky_list })
     # render the template using the provided context and return as http response.
     return HttpResponse(template.render(context))
@@ -56,8 +54,6 @@ def distillery(request):
     distillery_list = Distillery.objects.all()
     for distillery in distillery_list:
         distillery_name = distillery.name
-        distillery_latitude = distillery.latitude
-        distillery_longitude = distillery.longitude
         distillery.url = encode_distillery(distillery_name)
         # Put the data into the context
     context = RequestContext(request,{ 'distillery_list': distillery_list }) 
@@ -148,7 +144,6 @@ def whisky(request, whisky_name_url):
                 context_dict['whisky_page'] = whisky_page
 
         context = RequestContext(request, context_dict)
-
         return HttpResponse(template.render(context))
 
 def encode_whisky(whisky_name):
@@ -187,6 +182,10 @@ def distilleries_list(request, distillery_name_url):
         # In models, we defined name to be unique,
         # so there so only be one, if one exists.
         distillery_list = Distillery.objects.filter(name=distillery_name)
+        if distillery:
+                # selects all the pages associated with the selected category
+                distillery_page = Distillery.objects.all()
+                context_dict['distillery_page'] = distillery_page
 
         context = RequestContext(request, context_dict)
         return HttpResponse(template.render(context))
@@ -199,9 +198,7 @@ def decode_distillery(distillery_url):
         # returns the category name given the category url portion
         return distillery_url.replace('_',' ')
 
-def distillery_archive(request, distillery_name_url):
-        distillery_archive = Distillery.objects.all()
-        for distillery in distillery_archive:
-            distillery_latitude = distillery.latitude
+def distillery_archive(request):
+        d_list = Distillery.objects.all()
 
-        return render_to_response("dramapp/distillery.html", { 'distillery_archive': distillery_archive })
+        return render_to_response("dramapp/distillery.html", {'d_list': d_list})
