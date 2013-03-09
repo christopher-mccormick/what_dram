@@ -222,4 +222,3 @@ def comments(request, user):
         form = CommentForm()
         
     return render_to_response('dramapp/comment.html', {'form': form }, context)
-
