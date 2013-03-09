@@ -207,7 +207,7 @@ def decode_distillery(distillery_url):
 
  #       return render_to_response("dramapp/distillery.html", {'d_list': d_list})
 
-def comments(request):
+def comments(request, user):
     context = RequestContext(request)
     
     if request.method == 'POST':
