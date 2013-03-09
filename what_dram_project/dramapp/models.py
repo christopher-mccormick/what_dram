@@ -93,7 +93,7 @@ class Whisky(models.Model):
 		return self.name
 		
 class Comments(models.Model):
-	comments = models.CharField(max_length=400)
+	comments = models.TextField(max_length=400)
 	name = models.ForeignKey(Whisky)
 	user = models.ForeignKey(UserProfile)
 	#pub_date = models.DateTimeField(default=datetime.now,auto_now_add=True,db_index=True)

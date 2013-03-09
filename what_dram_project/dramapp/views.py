@@ -14,6 +14,7 @@ from django.db.models import Q
 import re
 from forms import *
 from models import *
+from dramapp.forms import Comments
 
 
 
@@ -208,7 +209,7 @@ def comments(request):
     context = RequestContext(request)
     
     if request.method == 'POST':
-        form = CommentForm(data = request.POST)
+        form = CommentForm(data = request.POST, initial={ 'username': 'ted' })
         if form.is_valid():
             username=form.cleaned_data['username'],
             whisky=form.cleaned_data['whisky']
