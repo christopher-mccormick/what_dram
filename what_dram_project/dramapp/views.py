@@ -204,19 +204,18 @@ def decode_distillery(distillery_url):
 
  #       return render_to_response("dramapp/distillery.html", {'d_list': d_list})
 
-def comments(request):
+def comments(request, user):
     context = RequestContext(request)
-    
     
     if request.method == 'POST':
         form = CommentForm(data = request.POST)
         if form.is_valid():
-            #username=form.cleaned_data['user'],
-            whisky=form.cleaned_data['name']
-
+            username=UserProfile.objects.get(user),
+            #whisky=form.cleaned_data['name']
             comments = form.cleaned_data['comments']
+            form.save()
         
-        return HttpResponseRedirect('/distillery/')
+        return HttpResponseRedirect('/thanks/')
         
 
     else:
