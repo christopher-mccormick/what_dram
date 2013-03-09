@@ -12,9 +12,8 @@ from dramapp.models import Whisky
 from dramapp.models import Distillery
 from django.db.models import Q
 import re
-from forms import *
+from django.forms import ModelForm
 from models import *
-from dramapp.forms import Comments
 
 
 
@@ -26,7 +25,7 @@ def index(request):
         for whisky in whisky_list:
             whisky_name = whisky.name #+ whisky.age
             whisky.url = encode_whisky(whisky_name)
-            whisky_age = whisky.age
+           # whisky_age = whisky.age
         # Put the data into the context
         #context = RequestContext(request,{ 'whisky_list': whisky_list })
         distillery_list = Distillery.objects.all()
@@ -200,16 +199,16 @@ def decode_distillery(distillery_url):
         # returns the category name given the category url portion
         return distillery_url.replace('_',' ')
 
-def distillery_archive(request):
-        d_list = Distillery.objects.all()
+#def distillery_archive(request):
+#        d_list = Distillery.objects.all()
 
-        return render_to_response("dramapp/distillery.html", {'d_list': d_list})
+ #       return render_to_response("dramapp/distillery.html", {'d_list': d_list})
 
 def comments(request):
     context = RequestContext(request)
     
     if request.method == 'POST':
-        form = CommentForm(data = request.POST, initial={ 'username': 'ted' })
+        form = CommentForm(data = request.POST)
         if form.is_valid():
             username=form.cleaned_data['username'],
             whisky=form.cleaned_data['whisky']

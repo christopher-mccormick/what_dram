@@ -1,7 +1,8 @@
 from django import forms
 
 
-class Comments(forms.Form):
-	username = forms.CharField(max_length=30)
-	whisky = forms.CharField(max_length=30)
-	comments = forms.CharField(initial="Replace with comment", max_length=400)
+class CommentForm(forms.Form):
+	username = forms.CharField(label='username', max_length=30)
+	whisky = forms.CharField(label='whisky', max_length=30)
+	comment = forms.CharField(label='comment', max_length=400)
+

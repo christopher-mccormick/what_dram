@@ -1,10 +1,12 @@
 {% extends 'dramapp/base.html' %}
+
     
 {% block title %}WhatDram | Whiskies{% endblock %}
 
 <!-- First Panel Row -->
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 {% block content %}
+
 
         <H2> {{ whisky_name }} | {{ whisky.age }}year old</H2>
 
@@ -19,11 +21,6 @@
         <P>No Whiskies in category.</P>
 {% endif %}
 
-<!---------------------COMMENTS-------------------->
-<h1>Post a Comment</h1>
-
-<!----------------------COMMENTS END------------------->        
-
 <div class="row seven">
     <div class="ten columns centered">
         <div id="regionlist">
@@ -34,6 +31,8 @@
     </div>
 
     <h4>{{ whisky.age}}</h4>
+
+    
 
     <!-- Three-up Content Blocks -->
 
@@ -66,12 +65,12 @@
             </li>
         </div>
 
-
-       
-
+        <div class="panel4 rounded">
 
 
+        </div>
 
+    
 
     </div>
     {% endblock %}
