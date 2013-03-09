@@ -207,29 +207,15 @@ def decode_distillery(distillery_url):
 def comments(request):
     context = RequestContext(request)
     
+    
     if request.method == 'POST':
         form = CommentForm(data = request.POST)
         if form.is_valid():
-            username=form.cleaned_data['username'],
-            whisky=form.cleaned_data['whisky']
+            username=form.cleaned_data['user'],
+            #whisky=form.cleaned_data['whisky']
             comments = form.cleaned_data['comments']
-
-        output = '''
-        <html>
-            <head>
-                <title>
-                    Reading user data
-                </title>
-            </head>
-            <body>
-                <h1>
-                Reading user data
-                </h1>
-                Your whisky is %
-                </body>
-        </html>'''%(whisky)
         
-        return HttpResponse(output) 
+        return HttpResponseRedirect('/distillery/')
         
 
     else:

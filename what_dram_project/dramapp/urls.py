@@ -16,8 +16,11 @@ urlpatterns = patterns('',
 	url(r'^whisky/(?P<whisky_name_url>\w+)', views.whisky, name='whisky'),
 	url(r'^distillery/(?P<distillery_name_url>\w+)', views.distilleries_list, name='distilleries_list'),
 	#url(r'^distillery/(?P<distillery_name_url>\w+)', views.distillery_archive, name='distillery_archive'),
+<<<<<<< HEAD
         url(r'^comment/$', views.comments, name='comments'),
         #url(r"^comment/$", views.add_comment, name="add_comment"),
+=======
+>>>>>>> parent of 17525ae... inital comment form doesn't submit...yet
         
 
 		
