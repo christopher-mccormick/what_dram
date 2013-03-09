@@ -15,7 +15,10 @@ import re
 from django.forms import ModelForm
 from models import *
 
-
+def thanks(request):
+    template = loader.get_template('dramapp/thanks.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
 
 def index(request):
        # select the appropriate template to use
@@ -208,12 +211,15 @@ def comments(request):
     context = RequestContext(request)
     
     if request.method == 'POST':
-        form = CommentForm(data = request.POST)
+        form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
-            username=UserProfile.objects.get(user),
-            #whisky=form.cleaned_data['name']
-            comments = form.cleaned_data['comments']
-            form.save()
+            form.save(user=request.user)
+            #username=UserProfile.objects.get(user=user.username),
+            #name=Whisky.objects.get(name=name)
+            #comments = form.save()
+            #comments.store = username
+            #comments.store = name
+            #comments.save()
         
         return HttpResponseRedirect('/thanks/')
         
@@ -221,4 +227,4 @@ def comments(request):
     else:
         form = CommentForm()
         
-    return render_to_response('dramapp/comment.html', {'form': form }, context)
+    return render_to_response('dramapp/comment.html', {'form': form }, context_instance=RequestContext(request))

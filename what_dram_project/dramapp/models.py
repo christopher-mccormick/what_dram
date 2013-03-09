@@ -200,9 +200,15 @@ class Comments(models.Model):
 		return self.comments
 
 class CommentForm(forms.ModelForm):
+	def save(self, user=None, force_insert=False, force_update=False, commit=True):
+		q = super(CommentForm, self).save(commit=False)
+		q.user = user
+		if commit:
+			q.save()
+		return q
 	class Meta:
         	model = Comments
-        	fields = ["comments"]
+        	exclude = ['user', 'id']
 	
 
 class Search(models.Model):

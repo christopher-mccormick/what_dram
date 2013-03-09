@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 	#url(r'^distillery/(?P<distillery_name_url>\w+)', views.distillery_archive, name='distillery_archive')
         url(r'^comment/$', views.comments, name='comments'),
         #url(r"^comment/$", views.add_comment, name="add_comment"),
-        url(r'^thanks/$', views.index, name='thanks')
+        url(r'^thanks/$', views.thanks, name='thanks')
         
 
 		

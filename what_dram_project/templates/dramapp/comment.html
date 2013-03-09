@@ -9,6 +9,7 @@
 <h3>leave a comment {{user.username}}</h3>
 <form method="post" action=".">
 	{% csrf_token %}
+	{{ form.errors }}
 	<input type="textbox" name"comment"/>
 
 <input type="Submit" value="Submit"/>
