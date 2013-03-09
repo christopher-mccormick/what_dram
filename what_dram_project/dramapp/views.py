@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from dramapp.models import Whisky 
 from dramapp.models import Distillery
+from dramapp.models import Comments, CommentForm
 from django.db.models import Q
 import re
 from django.forms import ModelForm
@@ -209,11 +210,17 @@ def decode_distillery(distillery_url):
 
 def comments(request):
     context = RequestContext(request)
+    user = UserProfile.objects.all()
+    for user in user:
+        user = user.user
     
     if request.method == 'POST':
+        comments = Comments(user=user)
         form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save(user=request.user)
+            comments = form.save(commit=False)
+            #comments.user = request.user
+            comments.save()
             #username=UserProfile.objects.get(user=user.username),
             #name=Whisky.objects.get(name=name)
             #comments = form.save()
@@ -226,5 +233,4 @@ def comments(request):
 
     else:
         form = CommentForm()
-        
-    return render_to_response('dramapp/comment.html', {'form': form }, context_instance=RequestContext(request))
+        return render_to_response('dramapp/comment.html', {'form': form }, context_instance=RequestContext(request))
