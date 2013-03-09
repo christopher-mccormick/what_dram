@@ -1,0 +1,15 @@
+{% extends 'dramapp/base.html' %}
+
+
+{% block title %}WhatDram | Comments{% endblock %}
+
+{% block content %}
+<h1> Comments </h1>
+<form method="post" action=".">
+	{% csrf_token %}
+	{{form.as_p}}
+
+<input type="Submit" value="Submit"/>
+</form>
+
+{% endblock %}
