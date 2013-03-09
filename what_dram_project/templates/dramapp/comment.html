@@ -5,6 +5,8 @@
 
 {% block content %}
 <h1> Comments </h1>
+
+<h3>leave a comment {{user.username}}</h3>
 <form method="post" action=".">
 	{% csrf_token %}
 	{{form.as_p}}

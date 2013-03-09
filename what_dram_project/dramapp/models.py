@@ -187,10 +187,11 @@ class Whisky(models.Model):
 		return self.name
 		
 class Comments(models.Model):
+	id = models.AutoField(primary_key=True)
 	#user = models.CharField(max_length=30)
 	#created = models.DateTimeField(auto_now_add=True)
 	comments = models.CharField(max_length=400)
-#	name = models.ForeignKey(Whisky)
+	name = models.ForeignKey(Whisky)
 	user = models.ForeignKey(UserProfile)
 	
 	#pub_date = models.DateTimeField(default=datetime.now,auto_now_add=True,db_index=True)
@@ -201,7 +202,7 @@ class Comments(models.Model):
 class CommentForm(forms.ModelForm):
 	class Meta:
         	model = Comments
-        	fields = ["user", "comments"]
+        	fields = ["comments", "name"]
 	
 
 class Search(models.Model):

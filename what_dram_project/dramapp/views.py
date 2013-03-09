@@ -211,8 +211,9 @@ def comments(request):
     if request.method == 'POST':
         form = CommentForm(data = request.POST)
         if form.is_valid():
-            username=form.cleaned_data['user'],
-            #whisky=form.cleaned_data['whisky']
+            #username=form.cleaned_data['user'],
+            whisky=form.cleaned_data['name']
+
             comments = form.cleaned_data['comments']
         
         return HttpResponseRedirect('/distillery/')
