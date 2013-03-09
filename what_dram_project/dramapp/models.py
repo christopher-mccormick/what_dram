@@ -96,9 +96,18 @@ class Comments(models.Model):
 	comments = models.CharField(max_length=400)
 	name = models.ForeignKey(Whisky)
 	user = models.ForeignKey(UserProfile)
+	#pub_date = models.DateTimeField(default=datetime.now,auto_now_add=True,db_index=True)
 
 	def __unicode__(self):
 		return self.comments
 
+class CommentForm(forms.ModelForm):
+	class Meta:
+        	model = Comments
+        fields = ["user", "name", "comments"]
+	
+
 class Search(models.Model):
   query = forms.CharField(max_length=30, required=False)
+
+

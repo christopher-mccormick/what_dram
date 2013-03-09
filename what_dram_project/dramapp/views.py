@@ -12,6 +12,8 @@ from dramapp.models import Whisky
 from dramapp.models import Distillery
 from django.db.models import Q
 import re
+from forms import *
+from models import *
 
 
 
@@ -201,3 +203,36 @@ def distillery_archive(request):
         d_list = Distillery.objects.all()
 
         return render_to_response("dramapp/distillery.html", {'d_list': d_list})
+
+def comments(request):
+    context = RequestContext(request)
+    
+    if request.method == 'POST':
+        form = CommentForm(data = request.POST)
+        if form.is_valid():
+            username=form.cleaned_data['username'],
+            whisky=form.cleaned_data['whisky']
+            comments = form.cleaned_data['comments']
+
+        output = '''
+        <html>
+            <head>
+                <title>
+                    Reading user data
+                </title>
+            </head>
+            <body>
+                <h1>
+                Reading user data
+                </h1>
+                Your whisky is %
+                </body>
+        </html>'''%(whisky)
+        
+        return HttpResponse(output) 
+        
+
+    else:
+        form = CommentForm()
+        
+    return render_to_response('dramapp/comment.html', {'form': form }, context)
