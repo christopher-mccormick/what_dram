@@ -31,7 +31,7 @@ d8 = Distillery(name = 'Auchentoshan', region = rLow, latitude = '55.51', longit
 d8.save()
 d9 = Distillery(name = 'Glenkinchie', region = rLow, latitude = '55.89021', longitude = '-2.892862', images = 'test', website = 'http://www.discovering-distilleries.com/agecheck.php?redirect=/glenkinchie/index.php', tourevents = 'test',)
 d9.save()
-d10 = Distillery(name = 'Highland Park', region = rIsland, latitude = '58.59', longitude = '2.55', images = 'test', website = 'http://www.highlandpark.co.uk/', tourevents = 'test',)
+d10 = Distillery(name = 'Highland Park', region = rIsland, latitude = '58.967457', longitude = '-2.952511', images = 'test', website = 'http://www.highlandpark.co.uk/', tourevents = 'test',)
 d10.save()
 
 w1 = Whisky(name = 'Laphroaig', age = '10', whiskytype = 'Single Malt', distillery = d1, region = rIslay, rating = 'test', tastingnotes = 'Full bodied, Peaty, Smokey', barrelType = 'wood', image = 'test', website = 'http://www.laphroaig.com/whiskies/10yo.aspx', price = '37.50',)

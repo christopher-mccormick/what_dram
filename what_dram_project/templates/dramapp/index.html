@@ -33,7 +33,16 @@
       <hr />
     </div>
 
- 
+ {% if whisky_list %}
+        <UL>
+        {% for whisky in whisky_list %}
+                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ whisky.age }}  | {{ whisky.whiskytype}} year old</p></a></Li>
+                <hr />
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
 
 
   <!-- Three-up Content Blocks -->

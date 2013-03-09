@@ -22,9 +22,9 @@
     <script type="text/javascript">
       function initialize() {
         var image = '{{ STATIC_URL }}imgs/bottle.png';
-        var disLatlng = new google.maps.LatLng(55.62989, -6.15202);
+        var disLatlng = new google.maps.LatLng(58.967457, -2.952511);
         var mapOptions = {
-            zoom: 17,
+            zoom: 5,
             center: disLatlng,
             mapTypeId: google.maps.MapTypeId.SATELLITE
     }
@@ -88,7 +88,7 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 
 <!-- Map panel -->
-
+<h4>latitude | {{ distillery.latitude }} | longitude | {{ distillery.longitude }}</h4>
 <div class="row seven">
     <div class="ten columns centered">
 

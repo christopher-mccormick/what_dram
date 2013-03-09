@@ -21,10 +21,11 @@ def index(request):
         whisky_list = Whisky.objects.all()
         # add the cat_url data to each category
         for whisky in whisky_list:
-            whisky_name = whisky.name + whisky.age
+            whisky_name = whisky.name #+ whisky.age
             whisky.url = encode_whisky(whisky_name)
+            whisky_age = whisky.age
         # Put the data into the context
-        context = RequestContext(request,{ 'whisky_list': whisky_list })
+        #context = RequestContext(request,{ 'whisky_list': whisky_list })
         distillery_list = Distillery.objects.all()
         context = RequestContext(request,{ 'distillery_list': distillery_list, 'whisky_list': whisky_list })
         
@@ -41,12 +42,12 @@ def base(request):
         distillery_data = Distillery.objects.all()
         context = RequestContext(request, { 'distillery_data': distillery_data, 'whisky_data': whisky_data })
 
-def whisky_list(request):
-    template = loader.get_template('dramapp/whisky.html')
-    whisky_list = Whisky.objects.all()
-    context = RequestContext(request,{ 'whisky_list': whisky_list })
+#def whisky_list(request):
+#    template = loader.get_template('dramapp/whisky.html')
+#    whisky_list = Whisky.objects.all()
+#    context = RequestContext(request,{ 'whisky_list': whisky_list })
     # render the template using the provided context and return as http response.
-    return HttpResponse(template.render(context))
+#    return HttpResponse(template.render(context))
 
 
 def distillery(request):
@@ -132,16 +133,14 @@ def whisky(request, whisky_name_url):
         template = loader.get_template('dramapp/whisky.html')
 
         whisky_name = decode_whisky(whisky_name_url)
+            
         context_dict = {'whisky_name_url': whisky_name_url,
                                 'whisky_name': whisky_name}
         # Select the Category object given its name.
         # In models, we defined name to be unique,
         # so there so only be one, if one exists.
-        whisky_list = Whisky.objects.filter(name=whisky_name)
-        if whisky:
-                # selects all the pages associated with the selected category
-                whisky_page = Whisky.objects.all()
-                context_dict['whisky_page'] = whisky_page
+        whisk = Whisky.objects.get(name=whisky_name)
+        context_dict['whisky'] = whisk
 
         context = RequestContext(request, context_dict)
         return HttpResponse(template.render(context))
@@ -163,17 +162,19 @@ def search(request):
             Q(name__icontains=query) |
             Q(age__icontains=query) |
             Q(barrelType__icontains=query)
+
     )
         results = Whisky.objects.filter(qset).distinct()
     else:
         results = []
+    
     return render_to_response("dramapp/search.html", {
         "results": results,
         "query": query
          })
 
 def distilleries_list(request, distillery_name_url):
-        template = loader.get_template('dramapp/distillery.html')
+        template = loader.get_template('dramapp/distilleries.html')
 
         distillery_name = decode_distillery(distillery_name_url)
         context_dict = {'distillery_name_url': distillery_name_url,
@@ -181,13 +182,11 @@ def distilleries_list(request, distillery_name_url):
         # Select the Category object given its name.
         # In models, we defined name to be unique,
         # so there so only be one, if one exists.
-        distillery_list = Distillery.objects.filter(name=distillery_name)
-        if distillery:
-                # selects all the pages associated with the selected category
-                distillery_page = Distillery.objects.all()
-                context_dict['distillery_page'] = distillery_page
+        dist = Distillery.objects.get(name=distillery_name)
+        context_dict['distillery'] = dist
 
         context = RequestContext(request, context_dict)
+
         return HttpResponse(template.render(context))
 
 def encode_distillery(distillery_name):
