@@ -208,23 +208,24 @@ def decode_distillery(distillery_url):
  #       return render_to_response("dramapp/distillery.html", {'d_list': d_list})
 
 def comments(request, user):
-    context = RequestContext(request)
-    
-    if request.method == 'POST':
-        form = CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save(user=request.user)
-            #username=UserProfile.objects.get(user=user.username),
-            #name=Whisky.objects.get(name=name)
-            #comments = form.save()
-            #comments.store = username
-            #comments.store = name
-            #comments.save()
-        
-        return HttpResponseRedirect('/thanks/')
-        
+        context = RequestContext(request)
+        if request.method == 'POST':
+                # data has been entered into the form via Post
+                form = CommentForm(request.POST)
+                if form.is_valid():
+                        # the form has been correctly filled in,
+                        # so lets save the data to the model
+                        cat = form.save(commit=True)
+                        # show the index page with the list of categories
+                        return index(request)
+                else:
+                        # the form contains errors,
+                        # show the form again, with error messages
+                        pass
+        else:
+            # a GET request was made, so we simply show a blank/empty form.
+            form = CommentForm()
 
-    else:
-        form = CommentForm()
-        
-    return render_to_response('dramapp/comment.html', {'form': form }, context_instance=RequestContext(request))
+            # pass on the context, and the form data.
+        return render_to_response('dramapp/comment.html',
+                {'forms': forms }, context)
