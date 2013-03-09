@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
 
-# Create your models here
+# Create your models here.
 
 class UserProfile(models.Model):
     # This field is required.
