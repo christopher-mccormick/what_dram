@@ -10,10 +10,12 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from dramapp.models import Whisky 
 from dramapp.models import Distillery
+from dramapp.models import Rating
 from django.db.models import Q
 import re
 from django.forms import ModelForm
 from models import *
+from django.shortcuts import get_object_or_404
 
 def thanks(request):
     template = loader.get_template('dramapp/thanks.html')
@@ -201,6 +203,21 @@ def encode_distillery(distillery_name):
 def decode_distillery(distillery_url):
         # returns the category name given the category url portion
         return distillery_url.replace('_',' ')
+
+def rate(request, whisky_id)
+    whisky = get_object_or_404(Whisky, pk=whisky_id)
+    if 'rating' not in request.GET or request.GET['rating'] not in ('1', '2', '3', '4', '5'):
+        return HttpResponseRedirect(whisky.get_absolute_url())
+
+    try:
+        rating = Rating.objects.get(user__pk=request.user.id, whisky__pk=whisky.id)
+
+    except Rating.DoesNotExist:
+        rating = Rating(user=request.user, whisky=whisky)
+    rating.rating = int(request.GET['rating'])
+    rating.save()
+    return HttpResponseRedirect(whisky.get_absolute_url())
+rate = login_required(rate)
 
 #def distillery_archive(request):
 #        d_list = Distillery.objects.all()
