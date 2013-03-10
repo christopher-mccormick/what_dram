@@ -3,7 +3,7 @@ from dramapp.models import Region, Distillery, Whisky
 from django.conf.urls.defaults import *
 from django.views.generic import list_detail
 from dramapp import views
-
+from dramapp.views import rate
 
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
