@@ -1,5 +1,5 @@
 {% extends 'dramapp/base.html' %}
-
+{% load comments %}
     
 {% block title %}WhatDram | Whiskies{% endblock %}
 
@@ -70,7 +70,11 @@
 
         </div>
 
-    
+    {% get_comment_count for whisky as comment_count %}
+
+    {% render_comment_list for whisky %}
+
+    {% render_comment_form for whisky %}
 
     </div>
     {% endblock %}

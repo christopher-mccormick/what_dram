@@ -186,23 +186,23 @@ class Whisky(models.Model):
 	def __unicode__(self):
 		return self.name
 		
-class Comments(models.Model):
-	id = models.AutoField(primary_key=True)
-	#user = models.CharField(max_length=30)
-	#created = models.DateTimeField(auto_now_add=True)
-	comments = models.CharField(max_length=400)
-	#name = models.ForeignKey(Whisky)
-	user = models.ForeignKey(UserProfile)
-	
-	#pub_date = models.DateTimeField(default=datetime.now,auto_now_add=True,db_index=True)
+#class Comments(models.Model):
+#	id = models.AutoField(primary_key=True)
+#	#user = models.CharField(max_length=30)
+#	#created = models.DateTimeField(auto_now_add=True)
+#	comments = models.CharField(max_length=400)
+#	#name = models.ForeignKey(Whisky)
+#	user = models.ForeignKey(UserProfile)
+#	
+#	#pub_date = models.DateTimeField(default=datetime.now,auto_now_add=True,db_index=True)
+#
+#	def __unicode__(self):
+#		return self.comments
 
-	def __unicode__(self):
-		return self.comments
-
-class CommentForm(forms.ModelForm):
-	class Meta:
-        	model = Comments
-        	fields = ["comments"]
+#class CommentForm(forms.ModelForm):
+#	class Meta:
+#        	model = Comments
+#        	fields = ["comments"]
 	
 
 class Search(models.Model):

@@ -15,10 +15,11 @@ urlpatterns = patterns('',
         url(r'^search/$', views.search, name='search'),
 	url(r'^whisky/(?P<whisky_name_url>\w+)', views.whisky, name='whisky'),
 	url(r'^distillery/(?P<distillery_name_url>\w+)', views.distilleries_list, name='distilleries_list'),
-	#url(r'^distillery/(?P<distillery_name_url>\w+)', views.distillery_archive, name='distillery_archive')
-        url(r'^comment/$', views.comments, name='comments'),
+	url(r'^comments/', include('django.contrib.comments.urls')),
+        #url(r'^distillery/(?P<distillery_name_url>\w+)', views.distillery_archive, name='distillery_archive')
+        #url(r'^comment/$', views.comments, name='comments'),
         #url(r"^comment/$", views.add_comment, name="add_comment"),
-        url(r'^thanks/$', views.thanks, name='thanks')
+        #url(r'^thanks/$', views.thanks, name='thanks')
         
 
 		
