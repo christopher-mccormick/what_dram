@@ -1,6 +1,5 @@
 from django.contrib import admin
-from dramapp.models import Region, Distillery, Whisky, Rating
-from dramapp.models import UserProfile
+from dramapp.models import Region, Distillery, Whisky, Rating, UserProfile
 
 admin.site.register(Region)
 admin.site.register(Distillery)

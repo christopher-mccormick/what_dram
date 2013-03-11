@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/populate.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1362067496688" ignored="false" />
     <file path="/whisky.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1363026370023" ignored="false" />
-    <file path="/models.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1363020907222" ignored="false" />
+    <file path="/models.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1363042896596" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,28 +23,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dramapp/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="59" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="managers.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dramapp/managers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="32" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="whisky.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="whisky.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dramapp/templatetags/whisky.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="33" selection-start="61" selection-end="61" vertical-scroll-proportion="0.04021448">
+            <state line="1" column="33" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -52,11 +34,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dramapp/templatetags/__init__.py">
+      <file leaf-file-name="managers.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dramapp/managers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dramapp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="13" selection-start="2555" selection-end="2555" vertical-scroll-proportion="0.2761394">
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,10 +65,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/populate.py" />
-        <option value="$PROJECT_DIR$/dramapp/models.py" />
-        <option value="$PROJECT_DIR$/dramapp/managers.py" />
-        <option value="$PROJECT_DIR$/dramapp/views.py" />
         <option value="$PROJECT_DIR$/dramapp/templatetags/whisky.py" />
+        <option value="$PROJECT_DIR$/dramapp/models.py" />
+        <option value="$PROJECT_DIR$/dramapp/urls.py" />
+        <option value="$PROJECT_DIR$/dramapp/views.py" />
+        <option value="$PROJECT_DIR$/dramapp/admin.py" />
+        <option value="$PROJECT_DIR$/dramapp/managers.py" />
       </list>
     </option>
   </component>
@@ -173,6 +168,42 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Django server.what_dram_project">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="what_dram_project" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="what_dram_project" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -192,6 +223,24 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="what_dram_project" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
     <configuration default="false" name="what_dram_project" type="Python.DjangoServer" factoryName="Django server">
@@ -321,29 +370,6 @@
         <state line="64" column="80" selection-start="5191" selection-end="5191" vertical-scroll-proportion="1.5281501" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dramapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="9" selection-start="2350" selection-end="2350" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dramapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="59" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dramapp/managers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="32" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dramapp/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -358,11 +384,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="449" column="2" selection-start="20080" selection-end="20080" vertical-scroll-proportion="0.28857142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/bing_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="56" selection-start="206" selection-end="206" vertical-scroll-proportion="0.28150135">
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="26" selection-start="158" selection-end="158" vertical-scroll-proportion="0.21428572">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.07772021">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="594" selection-end="594" vertical-scroll-proportion="0.21179625">
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dramapp/templatetags/whisky.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="33" selection-start="61" selection-end="61" vertical-scroll-proportion="0.04021448">
+        <state line="1" column="33" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/managers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="13" selection-start="2555" selection-end="2555" vertical-scroll-proportion="0.2761394">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
