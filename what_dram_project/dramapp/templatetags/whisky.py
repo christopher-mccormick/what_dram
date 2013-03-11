@@ -1,4 +1,6 @@
+from django import template
 from dramapp.models import Rating
+register = template.Library()
 
 def do_if_rated(parser, token):
 	bits = token.contents.split()
@@ -7,7 +9,7 @@ def do_if_rated(parser, token):
 	nodelist_true = parser.parse(('else', 'endif_rated'))
 	token = parser.next_token()
 	if token.contents == 'else':
-		nodelist_false = parser.parse(('endif_rated'))
+		nodelist_false = parser.parse(('endif_rated',))
 		parser.delete_first_token()
 	else:
 		nodelist_false = template.Nodelist()
@@ -20,7 +22,7 @@ class IfRatedNode(template.Node):
 		self.user = template.Variable(user)
 		self.whisky = template.Variable(whisky)
 
-	def  render(self, context):
+	def render(self, context):
 		try:
 			user = self.user.resolve(context)
 			whisky = self.whisky.resolve(context)
@@ -44,7 +46,7 @@ def do_get_rating(parser, token):
 
 class GetRatingNode(template.Node):
 	def __init__(self, user, whisky, varname):
-		self.user =template.Variable(user)
+		self.user = template.Variable(user)
 		self.whisky = template.Variable(whisky)
 		self.varname = varname
 

@@ -63,42 +63,6 @@ class Whisky(models.Model):
 
 	def __unicode__(self):
 		return self.name
-		
-from django.db import models
-from django.contrib.auth.models import User
-from django import forms
-from django.forms import ModelForm
-
-# Create your models here
-
-class UserProfile(models.Model):
-    # This field is required.
-    user = models.OneToOneField(User)
-    # These fields are optional
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    date_of_birth = models.DateField()
-
-
-    def __unicode__(self):
-        return self.user.username
-
-
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ["username", "email", "password"]
-
-class UserProfileForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ['first_name', 'last_name', 'date_of_birth']
-
-class Region(models.Model):
-	region = models.CharField(max_length=30)
-
-	def __unicode__(self):
-		return self.region
 
 class Rating(models.Model):
 	STAR_1 = 1
@@ -126,25 +90,6 @@ class Rating(models.Model):
 
 	def get_score(self):
 		return sum(self.rating_set.vales('rating', flat = True))
-		
-#class Comments(models.Model):
-#	id = models.AutoField(primary_key=True)
-#	#user = models.CharField(max_length=30)
-#	#created = models.DateTimeField(auto_now_add=True)
-#	comments = models.CharField(max_length=400)
-#	#name = models.ForeignKey(Whisky)
-#	user = models.ForeignKey(UserProfile)
-#	
-#	#pub_date = models.DateTimeField(default=datetime.now,auto_now_add=True,db_index=True)
-#
-#	def __unicode__(self):
-#		return self.comments
-
-#class CommentForm(forms.ModelForm):
-#	class Meta:
-#        	model = Comments
-#        	fields = ["comments"]
-	
 
 class Search(models.Model):
   query = forms.CharField(max_length=30, required=False)
