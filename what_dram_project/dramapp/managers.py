@@ -1,3 +1,5 @@
+from django.db import connection
+
 def top_rated(self):
 	from dramapp.models import Rating
 	subquery = "SELECT SUM(%(rating_column)s) from %(rating_table)s WHERE%(rating_table)s.%(whisky_column)s = whisky.id"
