@@ -4,7 +4,7 @@
 {% block title %}WhatDram | Whiskies{% endblock %}
 
 <!-- First Panel Row -->
-<!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions. -->
+<!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 {% block content %}
 
 
@@ -69,34 +69,14 @@
 
 
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 </div>
->>>>>>> comments working properly now
-=======
->>>>>>> parent of e512aac... please don't break!
 
 
     {% get_comment_count for whisky as comment_count %}
 
     {% render_comment_list for whisky %}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of e512aac... please don't break!
-    {% render_comment_form for whisky %}
-
-    {% endblock %}
-
-
-    <!--{% if user.is_authenticated %}
-=======
     {% if user.is_authenticated %}
->>>>>>> comments working properly now
     {% get_comment_form for whisky as form %}
     <form action="{% comment_form_target %}" method="POST">
     {% csrf_token %}
