@@ -13,7 +13,7 @@ def do_if_rated(parser, token):
 		parser.delete_first_token()
 	else:
 		nodelist_false = template.Nodelist()
-	return IfRateNode(bits[1], bits[2], nodelist_true, nodelist_false)
+	return IfRatedNode(bits[1], bits[2], nodelist_true, nodelist_false)
 
 class IfRatedNode(template.Node):
 	def __init__(self, user, whisky, nodelist_true, nodelist_false):
@@ -42,7 +42,7 @@ def do_get_rating(parser, token):
 		raise template.TemplateSyntaxError("%s tag takes for arguments" % bits[0])
 	if bits[3] != 'as':
 		raise template.TemplateSyntaxError("Third argument to %s must be 'as'" % bits[0])
-		return GetRatingNode(bits[1], bits[2], bits[4])
+	return GetRatingNode(bits[1], bits[2], bits[4])
 
 class GetRatingNode(template.Node):
 	def __init__(self, user, whisky, varname):
@@ -62,4 +62,3 @@ class GetRatingNode(template.Node):
 		return ''
 		
 register.tag('get_rating', do_get_rating)
-

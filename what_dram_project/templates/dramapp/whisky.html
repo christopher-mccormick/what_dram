@@ -91,7 +91,7 @@
     {% else %}
     <p>Please log in to leave a comment.</p>
     {% endif %}
-
+<div class = "panel">
 {% load whisky %}
     {% if_rated user object %}
         {% get_rating user whisky as rating %}
@@ -104,7 +104,7 @@
             <a href="{% url dramapp_whisky_rate object id %}?rating=4">4Stars</a> or
             <a href="{% url dramapp_whisky_rate object id %}?rating=5">5Stars</a>.</p>
     {% endif_rated %}
-
+</div>
     {% endblock %}
 
 
