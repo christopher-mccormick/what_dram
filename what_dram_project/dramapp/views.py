@@ -17,11 +17,6 @@ from django.forms import ModelForm
 from models import *
 from django.shortcuts import get_object_or_404
 
-def thanks(request):
-    template = loader.get_template('dramapp/thanks.html')
-    context = RequestContext(request)
-    return HttpResponse(template.render(context))
-
 def index(request):
        # select the appropriate template to use
         template = loader.get_template('dramapp/index.html')
@@ -48,14 +43,6 @@ def base(request):
         whisky_data = Whisky.objects.all()
         distillery_data = Distillery.objects.all()
         context = RequestContext(request, { 'distillery_data': distillery_data, 'whisky_data': whisky_data })
-
-#def whisky_list(request):
-#    template = loader.get_template('dramapp/whisky.html')
-#    whisky_list = Whisky.objects.all()
-#    context = RequestContext(request,{ 'whisky_list': whisky_list })
-    # render the template using the provided context and return as http response.
-#    return HttpResponse(template.render(context))
-
 
 def distillery(request):
     template = loader.get_template('dramapp/distillery.html')
@@ -219,30 +206,3 @@ def rate(request, whisky_id):
     rating.save()
     return HttpResponseRedirect(whisky.get_absolute_url())
 rate = login_required(rate)
-
-#def distillery_archive(request):
-#        d_list = Distillery.objects.all()
-
- #       return render_to_response("dramapp/distillery.html", {'d_list': d_list})
-
-#def comments(request):
-#    context = RequestContext(request)
-#    
-#    if request.method == 'POST':
-#        form = CommentForm(request.POST, request.FILES)
-#        if form.is_valid():
-#            form.save(user=request.user,)
-#            #username=UserProfile.objects.get(user=user.username),
-#            #name=Whisky.objects.get(name=name)
-#            #comments = form.save()
-#            #comments.store = username
-#            #comments.store = name
-#            #comments.save()
-#        
-#        return HttpResponseRedirect('/thanks/')
-#        
-#
-#    else:
-#        form = CommentForm()
-#        
-#    return render_to_response('dramapp/comment.html', {'form': form }, context_instance=RequestContext(request))
