@@ -5,7 +5,7 @@
     <ignored path="what_dram_project.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/populate.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1362067496688" ignored="false" />
-    <file path="/whisky.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1363013623348" ignored="false" />
+    <file path="/whisky.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1363026370023" ignored="false" />
     <file path="/models.py" changelist="67ac1a5d-e1c0-45bd-8b63-441adc03d408" time="1363020907222" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,13 +23,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dramapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="30" selection-start="5402" selection-end="5402" vertical-scroll-proportion="4.986595">
+            <state line="7" column="59" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="managers.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dramapp/managers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="32" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="whisky.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dramapp/templatetags/whisky.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="33" selection-start="61" selection-end="61" vertical-scroll-proportion="0.04021448">
               <folding>
-                <element signature="e#0#36#0" expanded="true" />
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dramapp/templatetags/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,9 +72,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/populate.py" />
-        <option value="$PROJECT_DIR$/dramapp/templatetags/whisky.py" />
         <option value="$PROJECT_DIR$/dramapp/models.py" />
         <option value="$PROJECT_DIR$/dramapp/managers.py" />
+        <option value="$PROJECT_DIR$/dramapp/views.py" />
+        <option value="$PROJECT_DIR$/dramapp/templatetags/whisky.py" />
       </list>
     </option>
   </component>
@@ -302,12 +330,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dramapp/templatetags/whisky.py">
+    <entry file="file://$PROJECT_DIR$/dramapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="4" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+        <state line="7" column="59" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -318,11 +344,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dramapp/views.py">
+    <entry file="file://$PROJECT_DIR$/dramapp/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="30" selection-start="5402" selection-end="5402" vertical-scroll-proportion="4.986595">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/templatetags/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dramapp/templatetags/whisky.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="33" selection-start="61" selection-end="61" vertical-scroll-proportion="0.04021448">
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
