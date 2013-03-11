@@ -92,9 +92,9 @@
     <p>Please log in to leave a comment.</p>
     {% endif %}
 <h4> RATINGS </h4>
+
 <div class = "panel">
 {% load whisky %}
-    <p1> hello world </p1>
     
     {% if_rated user whisky %}
     
@@ -104,12 +104,12 @@
         
     {% else %}
 
-        <p>Rate this whisky:
-            <a href="/whisky/{{ whisky_name_url }}?rating=1">1 Star</a> or
-            <a href="/whisky/{{ whisky_name_url }}?rating=2">2 Stars</a> or
-            <a href="/whisky/{{ whisky_name_url }}?rating=3">3 Stars</a> or
-            <a href="/whisky/{{ whisky_name_url }}?rating=4">4 Stars</a> or
-            <a href="/whisky/{{ whisky_name_url }}?rating=5">5 Stars</a></p>
+        <h7>Rate this whisky:</h7>
+            <p1><a href="/whisky/{{ whisky_name_url }}?rating=1">1 Star</a> |
+            <a href="/whisky/{{ whisky_name_url }}?rating=2">2 Stars</a> |
+            <a href="/whisky/{{ whisky_name_url }}?rating=3">3 Stars</a> |
+            <a href="/whisky/{{ whisky_name_url }}?rating=4">4 Stars</a> |
+            <a href="/whisky/{{ whisky_name_url }}?rating=5">5 Stars</a></p1>
     {% endif_rated %}
 </div>
     {% endblock %}
