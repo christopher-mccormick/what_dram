@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
+import datetime
 
 # Create your models here
 
@@ -85,8 +86,8 @@ class Rating(models.Model):
 		return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_display())
 
 	def save(self):
-		#if not self.id:
-		#	self.date = datetime.datetime.now()
+		if not self.id:
+			self.date = datetime.datetime.now()
 		super(Rating, self).save()
 
 	def get_score(self):
