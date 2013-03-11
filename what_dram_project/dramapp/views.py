@@ -10,10 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from dramapp.models import Whisky 
 from dramapp.models import Distillery
-<<<<<<< HEAD
 from dramapp.models import Rating
-=======
->>>>>>> please don't break!
 from django.db.models import Q
 import re
 from django.forms import ModelForm

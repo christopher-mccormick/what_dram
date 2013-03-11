@@ -4,7 +4,7 @@
 {% block title %}WhatDram | Whiskies{% endblock %}
 
 <!-- First Panel Row -->
-<!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
+<!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions. -->
 {% block content %}
 
 
@@ -71,45 +71,24 @@
         </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 </div>
 >>>>>>> comments working properly now
-
-
 =======
-<div class="panel2">
-    {% if user.is_authenticated %}
->>>>>>> please don't break!
+>>>>>>> parent of e512aac... please don't break!
+
+
     {% get_comment_count for whisky as comment_count %}
 
     {% render_comment_list for whisky %}
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-    {% render_comment_form for whisky %}
+<<<<<<< HEAD
 =======
-   <form action="{% comment_form_target %}" method="post">
-        {% csrf_token %}
-        {% if next %}<input name="next" type="hidden" value="{{ next }}" />{% endif %}
-        {% for field in form %}
-            {% if field.is_hidden %}
-                {{ field }}
-            {% else %}
-                {% if field.name != "name" and field.name != "email" and field.name != "url" %}
-                    {% if field.errors %}{{ field.errors }}{% endif %}
-                    {{ field }}
-                {% endif %}
-            {% endif %}
-        {% endfor %}
-   </form>
-   {% render_comment_form for whisky %}
-{% else %}
-    <h5>I'm sorry, but you must be logged in to submit comments.</h5>
-{% endif %}
-</div>
-    
-   
->>>>>>> please don't break!
+>>>>>>> parent of e512aac... please don't break!
+    {% render_comment_form for whisky %}
 
     {% endblock %}
 

@@ -16,21 +16,9 @@ urlpatterns = patterns('',
 	url(r'^whisky/(?P<whisky_name_url>\w+)', views.whisky, name='whisky'),
 	url(r'^distillery/(?P<distillery_name_url>\w+)', views.distilleries_list, name='distilleries_list'),
 	url(r'^comments/', include('django.contrib.comments.urls')),
-<<<<<<< HEAD
         url(r'^(?P<whisky_id>\d+)$', rate, name='dramapp_whisky_rate'),
         #url(r'^distillery/(?P<distillery_name_url>\w+)', views.distillery_archive, name='distillery_archive')
         #url(r'^comment/$', views.comments, name='comments'),
         #url(r"^comment/$", views.add_comment, name="add_comment"),
         #url(r'^thanks/$', views.thanks, name='thanks')     
-=======
-        #url(r'^distillery/(?P<distillery_name_url>\w+)', views.distillery_archive, name='distillery_archive')
-        #url(r'^comment/$', views.comments, name='comments'),
-        #url(r"^comment/$", views.add_comment, name="add_comment"),
-        #url(r'^thanks/$', views.thanks, name='thanks')
-        
-
-		
-        
-      
->>>>>>> please don't break!
 )
