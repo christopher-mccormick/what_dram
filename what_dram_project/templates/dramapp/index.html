@@ -33,25 +33,16 @@
       <hr />
     </div>
 
- {% if whisky_list %}
-        <UL>
-        {% for whisky in whisky_list %}
-                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ whisky.age }}  | {{ whisky.whiskytype}} year old</p></a></Li>
-                <hr />
-        {% endfor %}
-        </UL>
-{% else %}
-        <P>No categories at present.</P>
-{% endif %}
+    <div class="whiskyofday">
+      <p>Whisky of the day placeholder</p>
 
-
+    </div>
   <!-- Three-up Content Blocks -->
   
   <div class="row">
       
       <div class="four columns">
-        <h1><a HREF="/comment/"><soan>COMMENTS</span></a></h1>
-        <h4>Whisky Playlist</h4>
+        <h4>The Perfect Whisky Soundtrack</h4>
         <center><p>"Scotch On the Rocks"</p></center>
         <iframe src="https://embed.spotify.com/?uri=spotify:user:113259557:playlist:5EVu8Hw21MoDF5mmbpWjRp&view=coverart" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
       
