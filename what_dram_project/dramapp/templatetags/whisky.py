@@ -1,5 +1,7 @@
 from django import template
-from cab.models import Rating
+from dramapp.models import Rating
+
+register = template.Library()
 
 def do_if_rated(parser, token):
     bits = token.contents.split()
@@ -27,7 +29,7 @@ class IfRatedNode(template.Node):
             whisky = self.whisky.resolve(context)
         except template.VariableDoesNotExist:
             return ''
-        if Rating.objects.filter(user__pk=user.id, whiksy__pk=whisky.id):
+        if Rating.objects.filter(user__pk=user.id, whisky__pk=whisky.id):
             return self.nodelist_true.render(context)
         else:
             return self.nodelist_false.render(context)
@@ -54,7 +56,7 @@ class GetRatingNode(template.Node):
             whisky = self.whisky.resolve(context)
         except template.VariableDoesNotExist:
             return ''
-        rating = Rating.objects.get(user__pk=user.id, whiksy__pk=whisky.id)
+        rating = Rating.objects.get(user__pk=user.id, whisky__pk=whisky.id)
         context[self.varname] = rating
         return ''
 register.tag('get_rating', do_get_rating)

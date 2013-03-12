@@ -64,23 +64,15 @@
 
 
 <div class ="rating">
-    {% load whisky %}
+{% load whisky %}
     
     {% if_rated user whisky %}
-    
         {% get_rating user whisky as rating %}
-        
-        <p>You rated this {{ whisky_name }} {{ rating.get_rating_display }}.</p>
-        
+        <p>You rated this whisky {{ rating.get_rating_display }}.</p>
     {% else %}
-
-        <h5>Rate this {{ whisky_name }}:</h5>
-        <h5>Rate this whisky:</h5>
-            <p><a href="/whisky/{{ whisky_name_url }}?rating=1">1 Star</a> |
-            <a href="/whisky/{{ whisky_name_url }}?rating=2">2 Stars</a> |
-            <a href="/whisky/{{ whisky_name_url }}?rating=3">3 Stars</a> |
-            <a href="/whisky/{{ whisky_name_url }}?rating=4">4 Stars</a> |
-            <a href="/whisky/{{ whisky_name_url }}?rating=5">5 Stars</a></p>
+        <p>Rate this whisky:
+            <a href="/whisky/{{ whisky_name_url }}?rating=1">useful</a> or 
+            <a href="/whisky/{{ whisky_name_url }}?rating=-1">not useful</a>.</p>  
     {% endif_rated %}
 </div>
 
