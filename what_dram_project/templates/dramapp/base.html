@@ -170,9 +170,9 @@
         <UL>
         {% for comment in comment_list %}
                 <div class="latest_comments">
-                 <Li><p2><a HREF="/whisky/{{whisky.url}}">{{ comment.content_object }} | {{ comment.content_object.age }} year old</a><p2>
+                 <Li><a HREF="/whisky/{{whisky.url}}"><p2>{{ comment.content_object }} | {{ comment.content_object.age }} year old</p2></a>
                <p>{{ comment.comment }}</p>
-               <p>{{ comment.user_name }}</p>
+               <p2>{{ comment.user_name }}</p2>
              </Li>
            </div>
                 <hr />
@@ -187,7 +187,7 @@
 
 
 
-  <div class="panel1">
+<!--  <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />
     {% if distillery_list %}
@@ -205,7 +205,7 @@
 
 <div class="intro">
   <h8></h8>
-</div>
+</div>-->
 
 
 {% block content %}{% endblock %}

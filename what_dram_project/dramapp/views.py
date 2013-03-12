@@ -23,7 +23,7 @@ def index(request):
     # Put the data into the context
     #context = RequestContext(request,{ 'whisky_list': whisky_list })
     distillery_list = Distillery.objects.all()
-    comment_list = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:5]
+    comment_list = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:3]
     context = RequestContext(request, {'distillery_list': distillery_list, 'whisky_list': whisky_list, 'comment_list': comment_list})
 
     # create and define the context. We don't have any context at the moment
