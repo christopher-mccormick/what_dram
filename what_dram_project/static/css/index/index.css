@@ -332,14 +332,14 @@ p { font-family: inherit;
   font-weight: normal; 
   font-size: 14px; 
   line-height: 1.6; 
-  margin-bottom: 17px; 
+  margin-bottom: 10px; 
   color: #ffffff}
 
 p1 { font-family: inherit; 
   font-weight: normal; 
   font-size: 14px; 
   line-height: 1.6; 
-  margin-bottom: 17px; 
+  margin-bottom: 10px; 
   color: #000000}
 
 h9 {
@@ -361,12 +361,24 @@ p.lead { font-size: 17.5px;
 p2 {
   font-family: inherit; 
   font-weight: normal; 
-  font-size: 14px; 
+  font-size: 11px; 
   line-height: 1.6; 
-  margin-bottom: 17px; 
-  color: rgb(170, 170, 170)}
+  margin-bottom: 5px; 
+  color: rgb(170, 170, 170)
 
 }
+
+p3 {
+  font-family: inherit; 
+  font-weight: normal; 
+  font-size: 13px; 
+  line-height: 1.6; 
+  margin-bottom: 5px; 
+  color: rgb(170, 170, 170)
+
+}
+
+
 
 
 aside p { 
@@ -1260,25 +1272,27 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
   width: 230px;
   height: auto;
   float: left;
   
 }
 .panel2 { 
-  background: rgba(0,0,0,0.5);  
+  background: rgba(0,0,0,0.6);  
   margin: 0 40px 0 0; 
   padding: 20px; 
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 230px;
   height: auto;
   float: right;
  }
 
  .panel3 { 
-  background: rgba(0,0,0,0.5);  
+  background: rgba(0,0,0,0.6);  
   margin: auto; 
   padding: 20px 10px, 20px, 10px; 
   border-bottom-right-radius: 5px;
@@ -1350,6 +1364,14 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   
 }
 
+.slider_panel {  
+  margin: auto; 
+  padding: 20px 10px, 20px, 10px; 
+  width: 700px;
+  height: 500px;
+  
+}
+
 .comment{
   background: rgba(0,0,0,0.5);  
   margin: 0 0 0 0; 
@@ -1376,6 +1398,19 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
 
 .whisky_title {
   margin: auto;
+}
+
+.playlist{
+
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.playlist_titles{
+  margin-left: 40px;
+  width: auto;
+  height: auto;
+
 }
 
 .panel > :first-child { margin-top: 0; }
