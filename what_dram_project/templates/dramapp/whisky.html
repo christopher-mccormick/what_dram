@@ -42,11 +42,12 @@
     </form>
     {% else %}
     <div class="comment_login">
-    <p>Please log in to leave a comment.</p>
+    <p>Please log in to leave a comment and rate {{ whisky_name }}.</p>
     </div>
     {% endif %}
 </div>
     
+    {% if user.is_authenticated %}
     <h5>Ratings</h5>
 
 
@@ -61,7 +62,7 @@
         
     {% else %}
 
-        <h7>Rate this whisky:</h7>
+        <h5>Rate this {{ whisky_name }}:</h5>
             <p><a href="/whisky/{{ whisky_name_url }}?rating=1">1 Star</a> |
             <a href="/whisky/{{ whisky_name_url }}?rating=2">2 Stars</a> |
             <a href="/whisky/{{ whisky_name_url }}?rating=3">3 Stars</a> |
@@ -71,6 +72,7 @@
 </div>
 
 </div>
+{% endif %}
 <hr \>
 
 {% get_comment_count for whisky as comment_count %}
