@@ -37,7 +37,7 @@
       <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dramapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="23" selection-start="2662" selection-end="2662" vertical-scroll-proportion="3.6528497">
+            <state line="94" column="23" selection-start="2660" selection-end="2660" vertical-scroll-proportion="3.6528497">
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -71,8 +71,8 @@
         <option value="$PROJECT_DIR$/dramapp/urls.py" />
         <option value="$PROJECT_DIR$/dramapp/views.py" />
         <option value="$PROJECT_DIR$/dramapp/admin.py" />
-        <option value="$PROJECT_DIR$/dramapp/models.py" />
         <option value="$PROJECT_DIR$/dramapp/managers.py" />
+        <option value="$PROJECT_DIR$/dramapp/models.py" />
       </list>
     </option>
   </component>
@@ -456,7 +456,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dramapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="23" selection-start="2662" selection-end="2662" vertical-scroll-proportion="3.6528497">
+        <state line="94" column="23" selection-start="2660" selection-end="2660" vertical-scroll-proportion="3.6528497">
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
