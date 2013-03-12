@@ -342,6 +342,18 @@ p1 { font-family: inherit;
   margin-bottom: 17px; 
   color: #000000}
 
+h9 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+  font-weight: normal; 
+  font-style: normal; 
+  color: rgb(190,190,190); 
+  text-rendering: optimizeLegibility; 
+  line-height: 1.1; 
+  margin-bottom: 14px; 
+  margin-top: 14px;
+  font-size: 37px; 
+}
+
 p.lead { font-size: 17.5px; 
   line-height: 1.6; 
   margin-bottom: 17px; }
@@ -1345,6 +1357,14 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   height: 50px;
   text-align: center;
 
+}
+
+.whisky_panel{
+  height: auto;
+}
+
+.whisky_title {
+  margin: auto;
 }
 
 .panel > :first-child { margin-top: 0; }

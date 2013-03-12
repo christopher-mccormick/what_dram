@@ -8,7 +8,7 @@
 {% block content %}
 
 
-        <H2> {{ whisky_name }} | {{ whisky.age }}year old</H2>
+      <div class="whisky_title"><H2> {{ whisky_name }} |<H9> {{ whisky.age }} year old</H9></H2></div>
 
 
 
@@ -19,7 +19,11 @@
             <div id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
             <div id="map"><p></p></div>
             <h4>{{ whisky.whiskytype }}</h4>
+            <h4>{{ whisky.distillery }}</h4>
+            <h4>{{ whisky.region }}</h4>
             <h4>{{ whisky.tastingnotes }}</h4>
+            <h4>{{ whisky.barrelType }}</h4>
+            <a href "{{ whisky.website }}"><span><h4>Visit the {{whisky_name}} website</h4></span></a>
         </div>
         <hr />
     </div>
@@ -45,9 +49,8 @@
     {% else %}
     <div class="comment_login">
 
-    <p>Please log in to leave a comment and rate {{ whisky_name }}.</p>
+    <h6>Please log in to leave a comment and rate {{ whisky_name }}.</h6>
 
-    <p>Please log in to leave a comment.</p>
 
     </div>
     {% endif %}
