@@ -15,5 +15,8 @@ urlpatterns = patterns('',
                            name='distilleries_list'),
                        url(r'^comments/', include('django.contrib.comments.urls')),
                        url(r'^(?P<whisky_id>\d+)$', rate, name='dramapp_whisky_rate'),
+<<<<<<< HEAD
 )ky_id>\d+)$', rate, name='rate'),
+=======
+>>>>>>> More debugging, less buggy, still doesnt work
 )
