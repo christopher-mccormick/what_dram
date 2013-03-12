@@ -67,9 +67,9 @@
     
     {% if_rated user whisky %}
     
-    {% get_rating user whisky as rating %}
+        {% get_rating user whisky as rating %}
         
-    <p>You rated this {{ whisky_name }} {{ rating.get_rating_display }}</p>
+        <p>You rated this {{ whisky_name }} {{ rating.get_rating_display }}.</p>
         
     {% else %}
 

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from dramapp import managers
 import datetime
+from django.db.models import Sum
 
 # Create your models here.
 
@@ -97,7 +98,7 @@ class Rating(models.Model):
         super(Rating, self).save()
 
     def get_score(self):
-        return sum(self.rating_set.vales_list('rating', flat=True))
+        return self.rating_set.aggregate(Sum('rating'))
 
 
 class Search(models.Model):
