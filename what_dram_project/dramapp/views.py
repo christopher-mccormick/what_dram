@@ -4,10 +4,30 @@ from dramapp.models import UserForm, UserProfileForm, Whisky, Distillery, Rating
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 from django.http import HttpResponseRedirect
+=======
+from django.http import HttpResponseRedirect, Http404
+from dramapp.models import Whisky 
+from dramapp.models import Distillery
+from dramapp.models import Rating
+>>>>>>> html update
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 
+<<<<<<< HEAD
+=======
+
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.contenttypes.models import ContentType 
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+
+def thanks(request):
+    template = loader.get_template('dramapp/thanks.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
+>>>>>>> html update
 
 def index(request):
 # select the appropriate template to use
@@ -211,4 +231,8 @@ def rate(request, whisky_id):
     return HttpResponseRedirect(whisky.get_absolute_url())
 
 
+<<<<<<< HEAD
 rate = login_required(rate)
+=======
+
+>>>>>>> html update
