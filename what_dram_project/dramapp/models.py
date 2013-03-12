@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django import forms
-from django.forms import ModelForm
+from dramapp import managers
 import datetime
 
-# Create your models here
+# Create your models here.
 
 class UserProfile(models.Model):
     # This field is required.
@@ -54,6 +54,7 @@ class Distillery(models.Model):
 
 
 class Whisky(models.Model):
+    objects = managers.WhiskyManager()
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     age = models.CharField(max_length=30)
@@ -82,12 +83,13 @@ class Rating(models.Model):
                       (RATING_4, '4 Stars'),
                       (RATING_5, '5 Stars'))
     whisky = models.ForeignKey(Whisky)
-    user = models.ForeignKey(UserProfile)
+    user = models.ForeignKey(User, related_name='whisky_rating')
     rating = models.IntegerField(choices=RATING_CHOICES)
     date = models.DateTimeField()
 
     def __unicode__(self):
-        return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_display())
+        return "%s rating %s (%s)" % (self.user, self.whisky,
+                                      self.get_rating_display())
 
     def save(self):
         if not self.id:
@@ -95,7 +97,7 @@ class Rating(models.Model):
         super(Rating, self).save()
 
     def get_score(self):
-        return sum(self.rating_set.vales('rating', flat=True))
+        return sum(self.rating_set.vales_list('rating', flat=True))
 
 
 class Search(models.Model):
