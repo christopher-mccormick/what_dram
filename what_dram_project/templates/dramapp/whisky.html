@@ -9,7 +9,7 @@
 {% block content %}
 
 
-      <div class="whisky_title"><H2> {{ whisky_name }} |<H9> {{ whisky.age }} year old</H9></H2></div>
+      <div class="whisky_title"><H2> {{ whisky.name }} |<H9> {{ whisky.age }} year old</H9></H2></div>
 
 
 
@@ -17,8 +17,8 @@
 <div class="row seven">
     <div class="ten columns centered">
         <div id="regionlist">
-            <div id="map"><IMG SRC="{{ STATIC_URL }}imgs/scotland-map.jpg" /></div>
-            <div id="map"><p></p></div>
+            <div id="whisky"><IMG SRC="{{ whisky.image }}" /></div>
+            <div id="whisky"><p></p></div>
             <h4>{{ whisky.whiskytype }}</h4>
             <h4>{{ whisky.distillery }}</h4>
             <h4>{{ whisky.region }}</h4>
@@ -64,16 +64,7 @@
 
 
 <div class ="rating">
-{% load whisky %}
-    
-    {% if_rated user whisky %}
-        {% get_rating user whisky as rating %}
-        <p>You rated this whisky {{ rating.get_rating_display }}.</p>
-    {% else %}
-        <p>Rate this whisky:
-            <a href="/whisky/{{ whisky_name_url }}?rating=1">useful</a> or 
-            <a href="/whisky/{{ whisky_name_url }}?rating=-1">not useful</a>.</p>  
-    {% endif_rated %}
+
 </div>
 
 </div>

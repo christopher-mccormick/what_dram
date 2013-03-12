@@ -58,6 +58,7 @@ class Whisky(models.Model):
     objects = managers.WhiskyManager()
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
     age = models.CharField(max_length=30)
     whiskytype = models.CharField(max_length=30)
     distillery = models.ForeignKey(Distillery)
