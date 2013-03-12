@@ -198,19 +198,15 @@ def decode_distillery(distillery_url):
     # returns the category name given the category url portion
     return distillery_url.replace('_', ' ')
 
-def rate(request, whisky_id):
-    whisky = get_object_or_404(Whisky, pk=whisky_id)
-    if 'rating' not in request.GET or request.GET['rating'] not in ('1', '2', '3', '4', '5'):
-        return HttpResponseRedirect(whisky.get_absolute_url())
-
+def rate(request, whiksy_id):
+    snippet = get_object_or_404(Snippet, pk=whisky_id)
+    if 'rating' not in request.GET or request.GET['rating'] not in ('1', '-1'):
+        return HttpResponseRedirect(whiksy.get_absolute_url())
     try:
-        rating = Rating.objects.get(user__pk=request.user.id,
-                                    whisky__pk=whisky.id)
-
+        rating = Rating.objects.get(user__pk=request.user.id, snippet__pk=whiksy.id)
     except Rating.DoesNotExist:
-        rating = Rating(user=request.user,
-                        whisky=whisky)
+        rating = Rating(user=request.user, whisky=whisky)
     rating.rating = int(request.GET['rating'])
     rating.save()
-    return HttpResponseRedirect(whisky.get_absolute_url())
+    return HttpResponseRedirect(whiksy.get_absolute_url())
 rate = login_required(rate)

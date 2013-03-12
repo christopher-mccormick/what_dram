@@ -94,6 +94,7 @@ class Rating(models.Model):
         return self.rating_set.aggregate(Sum('rating'))
 
 
+
 class Search(models.Model):
     query = forms.CharField(max_length=30, required=False)
 
