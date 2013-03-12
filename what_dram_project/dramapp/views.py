@@ -212,8 +212,9 @@ def rate(request, whisky_id):
     return HttpResponseRedirect(whisky.get_absolute_url())
 
 
-rate = login_required(rate)
-ting'] not in ('1', '2', '3', '4', '5'):
+def rate(request, whisky_id):
+    whisky = get_object_or_404(Whisky, pk=whisky_id)
+    if 'rating' not in request.GET or request.GET['rating'] not in ('1', '2', '3', '4', '5'):
         return HttpResponseRedirect(whisky.get_absolute_url())
 
     try:

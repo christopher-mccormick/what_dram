@@ -42,19 +42,18 @@
     </form>
     {% else %}
     <div class="comment_login">
-<<<<<<< HEAD
+
     <p>Please log in to leave a comment and rate {{ whisky_name }}.</p>
-=======
+
     <p>Please log in to leave a comment.</p>
->>>>>>> More debugging, less buggy, still doesnt work
+
     </div>
     {% endif %}
 </div>
     
-<<<<<<< HEAD
+
     {% if user.is_authenticated %}
-=======
->>>>>>> More debugging, less buggy, still doesnt work
+
     <h5>Ratings</h5>
 
 
@@ -69,11 +68,8 @@
         
     {% else %}
 
-<<<<<<< HEAD
         <h5>Rate this {{ whisky_name }}:</h5>
-=======
         <h5>Rate this whisky:</h5>
->>>>>>> More debugging, less buggy, still doesnt work
             <p><a href="/whisky/{{ whisky_name_url }}?rating=1">1 Star</a> |
             <a href="/whisky/{{ whisky_name_url }}?rating=2">2 Stars</a> |
             <a href="/whisky/{{ whisky_name_url }}?rating=3">3 Stars</a> |
@@ -83,10 +79,7 @@
 </div>
 
 </div>
-<<<<<<< HEAD
 {% endif %}
-=======
->>>>>>> More debugging, less buggy, still doesnt work
 <hr \>
 
 {% get_comment_count for whisky as comment_count %}
