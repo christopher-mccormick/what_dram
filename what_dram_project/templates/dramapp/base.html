@@ -172,11 +172,24 @@
       {% get_latest_comments %}
       {% for comment in latest_comments %}
       <li>
-        {{ Comment.comment }}
-        posted {{ comment.pub_date|timesince }} ago
+        {{ Comment.whisky.name }}
+        posted {{ Comment.user }} ago
       </li>
       {% endfor %}
     </ul>
+
+        <hr \>
+        <h3>comments</h3>
+    {% if comment_list %}
+        <UL>
+        {% for comment in comment_list %}
+                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ comment.comment }}  | {{comment.content_type}} </p></a></Li>
+                <hr />
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
 
     <hr \>
     {% if whisky_list %}

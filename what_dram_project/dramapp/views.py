@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
+from django.contrib.comments.models import Comment
 
 
 def index(request):
@@ -22,7 +23,8 @@ def index(request):
     # Put the data into the context
     #context = RequestContext(request,{ 'whisky_list': whisky_list })
     distillery_list = Distillery.objects.all()
-    context = RequestContext(request, {'distillery_list': distillery_list, 'whisky_list': whisky_list})
+    comment_list = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:5]
+    context = RequestContext(request, {'distillery_list': distillery_list, 'whisky_list': whisky_list, 'comment_list': comment_list})
 
     # create and define the context. We don't have any context at the moment
     # but later on we will be putting data in the context which the template engine
@@ -37,6 +39,7 @@ def base(request):
     whisky_data = Whisky.objects.all()
     distillery_data = Distillery.objects.all()
     context = RequestContext(request, {'distillery_data': distillery_data, 'whisky_data': whisky_data})
+    comment_list = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:5]
 
 
 def distillery(request):
