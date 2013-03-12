@@ -1,5 +1,6 @@
 from django import template
 from dramapp.models import Rating
+from django.contrib.comments.models import Comment
 
 register = template.Library()
 
@@ -69,3 +70,13 @@ class GetRatingNode(template.Node):
 
 
 register.tag('get_rating', do_get_rating)
+
+def do_latest_comments(parser, token):
+	return LatestCommentsNode()
+
+class LatestCommentsNode(template.Node):
+	def render(self, context):
+		context['latest_comments'] = Comment.objects.all()[:5]
+		return ''
+
+register.tag('get_latest_comments', do_latest_comments)

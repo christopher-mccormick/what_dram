@@ -166,6 +166,19 @@
    <div class="panel2">
     <h4>Trending Whiskies</h4>
     <hr />
+    {% load whisky %}
+    <h2>Latest Comments</h2>
+    <ul>
+      {% get_latest_comments %}
+      {% for comment in latest_comments %}
+      <li>
+        {{ Comment.comment }}
+        posted {{ comment.pub_date|timesince }} ago
+      </li>
+      {% endfor %}
+    </ul>
+
+    <hr \>
     {% if whisky_list %}
         <UL>
         {% for whisky in whisky_list %}
