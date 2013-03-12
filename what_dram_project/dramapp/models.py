@@ -49,6 +49,7 @@ class Distillery(models.Model):
     images = models.URLField()
     website = models.URLField()
     tourevents = models.CharField(max_length=200)
+    blurb = models.CharField(max_length=10000)
 
     def __unicode__(self):
         return self.name

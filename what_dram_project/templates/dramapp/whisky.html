@@ -17,8 +17,8 @@
 <div class="row seven">
     <div class="ten columns centered">
         <div id="regionlist">
-            <div id="whisky"><IMG SRC="{{ whisky.image }}" /></div>
-            <div id="whisky"><p></p></div>
+            <div id="whiksyimage"><IMG SRC="{{ whisky.image }}" /></div>
+            <div id="whiskyimage"><p></p></div>
             <h4>{{ whisky.whiskytype }}</h4>
             <h4>{{ whisky.distillery }}</h4>
             <h4>{{ whisky.region }}</h4>
@@ -64,7 +64,18 @@
 
 
 <div class ="rating">
-
+{% load whisky %}
+    <p>test1</p>
+    {% if_rated user whisky %}
+     <p>test2</p>
+        {% get_rating user whisky as rating %}
+         <p>test3</p>
+        <p>You rated this whisky {{ rating.get_rating_display }}.</p>
+    {% else %}
+        <p>Rate this whisky:
+            <a href="{% url dramapp_whisky_rate  %}?rating=1">useful</a> or 
+            <a href="/whisky/{{ whisky_name_url }}?rating=-1">not useful</a>.</p>  
+    {% endif_rated %}
 </div>
 
 </div>
