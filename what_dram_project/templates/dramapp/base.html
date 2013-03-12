@@ -164,26 +164,17 @@
 
  
    <div class="panel2">
-    <h4>Trending Whiskies</h4>
+    <h3>Latest Comments</h3>
     <hr />
-    {% load whisky %}
-    <h2>Latest Comments</h2>
-    <ul>
-      {% get_latest_comments %}
-      {% for comment in latest_comments %}
-      <li>
-        {{ Comment.whisky.name }}
-        posted {{ Comment.user }} ago
-      </li>
-      {% endfor %}
-    </ul>
-
-        <hr \>
-        <h3>comments</h3>
     {% if comment_list %}
         <UL>
         {% for comment in comment_list %}
-                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ comment.comment }}  | {{comment.content_type}} </p></a></Li>
+                <div class="latest_comments">
+                 <Li><p2><a HREF="/whisky/{{whisky.url}}">{{ comment.content_object }} | {{ comment.content_object.age }} year old</a><p2>
+               <p>{{ comment.comment }}</p>
+               <p>{{ comment.user_name }}</p>
+             </Li>
+           </div>
                 <hr />
         {% endfor %}
         </UL>
@@ -191,17 +182,6 @@
         <P>No categories at present.</P>
 {% endif %}
 
-    <hr \>
-    {% if whisky_list %}
-        <UL>
-        {% for whisky in whisky_list %}
-                <Li><a HREF="/whisky/{{whisky.url}}"><p>{{ whisky.name }}  | {{whisky.age}} year old</p></a></Li>
-                <hr />
-        {% endfor %}
-        </UL>
-{% else %}
-        <P>No categories at present.</P>
-{% endif %}
 
   </div>
 
