@@ -1298,6 +1298,22 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   text-align: center;
 }
 
+.comment_list{
+  background: rgba(0,0,0,0.5);  
+  margin: auto; 
+  padding-left: 30px; 
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 450px;
+  height: auto;
+  color: #ffffff;
+}
+
 .whiskyofday {
   background: rgba(0,0,0,0.5);  
   margin: auto; 
