@@ -64,18 +64,7 @@
 
 
 <div class ="rating">
-{% load whisky %}
-    <p>test1</p>
-    {% if_rated user whisky %}
-     <p>test2</p>
-        {% get_rating user whisky as rating %}
-         <p>test3</p>
-        <p>You rated this whisky {{ rating.get_rating_display }}.</p>
-    {% else %}
-        <p>Rate this whisky:
-            <a href="{% url dramapp_whisky_rate  %}?rating=1">useful</a> or 
-            <a href="/whisky/{{ whisky_name_url }}?rating=-1">not useful</a>.</p>  
-    {% endif_rated %}
+
 </div>
 
 </div>
