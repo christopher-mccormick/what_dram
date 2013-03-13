@@ -44,6 +44,7 @@
   <div class="row twelve padded">
     <div class="two columns wrap">
       <h1><a href="../"><span><IMG SRC="{{ STATIC_URL }}imgs/logo4.png" /></span></a></h1>
+      <h6>Rate and review your favourite whisky</h6>
     </div>
 
 
@@ -95,8 +96,8 @@
          <li class='has-sub'><a><span>Highland</span></a>
             <ul>
                <li><a href='/distillery/Balblair'><span>Balblair</span></a></li>
-               <li><a href='/distillery/Eradour'><span>Eradour</span></a></li>
-               <li class='last'><a href='/distillery/'><span>Old Pulteney</span></a></li>
+               <li><a href='/distillery/Edradour'><span>Edradour</span></a></li>
+               <li class='last'><a href='/distillery/Old_Pulteney'><span>Old Pulteney</span></a></li>
             </ul>
          </li>
          <li class='last'><a><span>Islay</span></a>
@@ -107,13 +108,13 @@
          </li>
          <li class='last'><a><span>Island</span></a>
             <ul>
-               <li class='last'><a href='/distillery/Highland Park'><span>Highland Park</span></a></li>
+               <li class='last'><a href='/distillery/Highland_Park'><span>Highland Park</span></a></li>
             </ul>
          </li>
          <li class='last'><a><span>Lowland</span></a>
             <ul>
                <li><a href='/distillery/Auchentoshan'><span>Auchentoshan</span></a></li>
-               <li class='last'><a href='/distillery/Glenkinshie'><span>Glenkinshie</span></a></li>
+               <li class='last'><a href='/distillery/Glenkinchie'><span>Glenkinchie</span></a></li>
             </ul>
          </li>
          <li class='last'><a><span>Speyside</span></a>
@@ -163,44 +164,7 @@
   </div>
 
  
-   <div class="panel2">
-    <h4>Latest Comments</h4>
-    <hr />
-    {% if comment_list %}
-        <UL>
-        {% for comment in comment_list %}
-              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ comment.content_object.title }} | {{ comment.content_object.age }} year old</p3></a>
-               <p>{{ comment.comment }}</p>
-               <p2>posted by: {{ comment.user_name }}</p2>
-                <hr />
-        {% endfor %}
-        </UL>
-{% else %}
-        <P>No categories at present.</P>
-{% endif %}
-
-
-  </div>
-
-
- <div class="panel1">
-    <h4>Top Rated</h4>
-    <hr />
-    {% if comment_list %}
-        <UL>
-        {% for comment in comment_list %}
-              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ comment.content_object.title }} | {{ comment.content_object.age }} year old</p3></a>
-               <p>{{ comment.comment }}</p>
-               <p2>posted by: {{ comment.user_name }}</p2>
-                <hr />
-        {% endfor %}
-        </UL>
-{% else %}
-        <P>No categories at present.</P>
-{% endif %}
-
-
-  </div>
+  
 <!--  <div class="panel1">
     <h4>Top Rated Whiskies</h4>
      <hr />

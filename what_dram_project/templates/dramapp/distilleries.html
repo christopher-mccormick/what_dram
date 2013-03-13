@@ -76,69 +76,81 @@
 <!-- Top Rated Whiskies, Trending Whiskies and a list of whisky regions -->
 
 <!-- Map panel -->
-<h2>{{ distillery.name }} | {{distillery.region }}</h2>
+<div class="whisky_title"><h2>{{ distillery.name }}</h2>
 <div class="row seven">
-    <div class="ten columns centered">
+   <div class="eleven columns centered"> 
+ <div class="panel4">
+    <div class="d_inner_text">
 
-        <!-- maps code need to change the size from absolute -->
-        
-        <div id="map_canvas" style="width:670px; height:400px"></div>
+                <h7>About | <h10>{{ distillery.name}}</h10></h7>
+                <br /><br />
+                <p>{{ distillery.blurb }}</p>
 
+               
+        </div>
+            </div>
+        <div class="map_container">
+        <div id="map_canvas" style="width:481px; height:500px"></div>
+    </div>
         <hr />
-
+    </div>
     </div>
 
     <!-- Three-up Content Blocks -->
 
-    <div class="row">
 
-        <div class="panel3 columns rounded">
 
-            <li><a href='/distillery/'><span><h4>Regions</h4></span></a>
-                <ul>
-                    <li><a href='#'><span><p>Highlands</p></span></a></li>
-                    <li><a href='#'><span><p>Lowlands</p></span></a></li>
-                    <li><a href='#'><span><p>Speyside</p></span></a></li>
-                    <li><a href='#'><span><p>Islands</p></span></a></li>
-                    <li class='last'><a href='#'><span><p>Islay</p></span></a></li>
-                </ul>
-            </li>
+
+<div class="row seven">
+
+    <div class="eleven columns centered"> 
+ <div class="panel5">
+     <div id="d_image"><IMG SRC="{{ distillery.images }}" /></div>
+    <!--<div class="inner_text">
+                <p>{{ distillery.blurb }}</p>
+                <br /><br />
+                <br /><br />
+                <h7>Region | <h10>{{ distillery.region }}</h10></h7>
+                <br /><br />
+                <h7>Events | <h10>{{ distillery.tourevents }}</h10></h7>
+                <br /><br />
+                <hr />-->
+
+            <div class="distillery_info">
+                <div class="d_inner">
+            <h10>Distillery | Info</h10>
+             <br /><br />
+            <h7>{{ whisky.whiskytype}}</h7>
+                <br /><br />
+                <h7>Region | <h10>{{ distillery.region }}</h10></h7>
+                <br /><br />
+                <h7>Tour Events | <h10>{{ distillery.tourevents }}</h10></h7>
+                <br /><br />
+            <a href="{{ distillery.website }}"><span><h11>Visit the {{distillery.name}} website</h11></span></a>
         </div>
 
-        <div class="panel3 rounded">
 
-            <li><a href='/distillery/'><span><h4>Age</h4></span></a>
-                <ul>
-                    <li><a href='#'><span><p>10 Year</p></span></a></li>
-                    <li><a href='#'><span><p>12 Year</p></span></a></li>
-                    <li><a href='#'><span><p>15 Year</p></span></a></li>
-                    <li><a href='#'><span><p>17 Year</p></span></a></li>
-                    <li><a href='#'><span><p>18 Year</p></span></a></li>
-                    <li class='last'><a href='#'><span><p>21 Year</p></span></a></li>
-                </ul>
-            </li>
-        </div>
-
-        <div class="panel4 rounded">
-
-            <h4>Search</h4>
-
-        </div>
- <div class="panel1">
-    <h4>Top Rated Whiskies</h4>
-     <hr />
-    {% if distillery_list %}
-        <UL>
-        {% for distillery in distillery_list %}
-                <Li><a HREF="/distillery/{{distillery.url}}"><p>{{ distillery.name }}</p></a></Li>
+        <div class="d_inner_right">
+            <h4>Whiskies</h4>
+                <hr />
+                {% if whisk_list %}
+                 <UL>
+                    {% for whisky in whisk_list %}
+                     <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ Whisky.title }} | {{ Whisky.age }} year old</p3></a>
+                        
+                    
                 <hr />
         {% endfor %}
         </UL>
 {% else %}
         <P>No categories at present.</P>
 {% endif %}
-    <hr />
-  </div>
-    </div>
+
+         </div>   
+        </div>
+        </div>
+            </div>
+
+
 </body>
 {% endblock %}

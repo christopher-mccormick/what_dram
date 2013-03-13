@@ -15,4 +15,5 @@ urlpatterns = patterns('',
                            name='distilleries_list'),
                        url(r'^comments/', include('django.contrib.comments.urls')),
                        url(r'^whisky/(?P<whisky_name_url>\w+)$', rate, name='dramapp_whisky_rate'),
+                       url(r'^ratings/', include('ratings.urls')),
 )

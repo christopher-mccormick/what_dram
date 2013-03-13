@@ -105,5 +105,3 @@ class Rating(models.Model):
 
 class Search(models.Model):
     query = forms.CharField(max_length=30, required=False)
-
-

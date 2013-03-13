@@ -1,5 +1,5 @@
 from django import template
-from dramapp.models import Rating
+from dramapp.models import Rating, Whisky
 
 register = template.Library()
 
@@ -60,3 +60,11 @@ class GetRatingNode(template.Node):
         context[self.varname] = rating
         return ''
 register.tag('get_rating', do_get_rating)
+
+from ratings.forms import StarVoteForm
+from ratings.handlers import ratings, RatingHandler
+whisky = Whisky.objects.all()
+class MyHandler(RatingHandler):
+    score_range = (1, 5)
+    score_step = 0.5
+ratings.register(Whisky)

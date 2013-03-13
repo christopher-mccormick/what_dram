@@ -139,6 +139,9 @@ def whisky(request, whisky_name_url):
     whisk = Whisky.objects.get(name=whisky_name)
     context_dict['whisky'] = whisk
 
+    comment = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:5]
+    context_dict['comment'] = comment
+    
     context = RequestContext(request, context_dict)
     return HttpResponse(template.render(context))
 
@@ -181,6 +184,9 @@ def distilleries_list(request, distillery_name_url):
     # Select the Category object given its name.
     # In models, we defined name to be unique,
     # so there so only be one, if one exists.
+    whisk_list = Whisky.objects.get(title__icontains=distillery_name)
+    context_dict['whisky'] = whisk_list
+
     dist = Distillery.objects.get(name=distillery_name)
     context_dict['distillery'] = dist
 
@@ -202,11 +208,18 @@ def rate(request, whisky_id):
     whisky = get_object_or_404(Whisky, pk=whisky_id)
     if 'rating' not in request.GET or request.GET['rating'] not in ('1', '2', '3', '4', '5'):
         return HttpResponseRedirect(whisky.get_absolute_url())
+
     try:
-        rating = Rating.objects.get(user__pk=request.user.id, whisky__pk=whisky.id)
+        rating = Rating.objects.get(user__pk=request.user.id,
+                                    whisky__pk=whisky.id)
+
     except Rating.DoesNotExist:
-        rating = Rating(user=request.user, whisky=whisky)
+        rating = Rating(user=request.user,
+                        whisky=whisky)
     rating.rating = int(request.GET['rating'])
     rating.save()
     return HttpResponseRedirect(whisky.get_absolute_url())
 rate = login_required(rate)
+
+from ratings.handlers import ratings
+ratings.register(Whisky)

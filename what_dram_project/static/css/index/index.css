@@ -29,7 +29,8 @@ body
     background: rgba(0,0,0,0.7);
     margin: 0 0 50px 0;
     padding: 20px;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     width: 250px;
     height: 350px;
     float: left;
@@ -303,7 +304,8 @@ p a, p a:visited { line-height: inherit; }
 
 #googlemap img, object, embed { max-width: none; }
 
-#map_canvas embed { max-width: none; }
+#map_canvas embed { max-width: none;
+}
 
 #map_canvas img { max-width: none; }
 
@@ -342,17 +344,7 @@ p1 { font-family: inherit;
   margin-bottom: 10px; 
   color: #000000}
 
-h9 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
-  font-weight: normal; 
-  font-style: normal; 
-  color: rgb(190,190,190); 
-  text-rendering: optimizeLegibility; 
-  line-height: 1.1; 
-  margin-bottom: 14px; 
-  margin-top: 14px;
-  font-size: 37px; 
-}
+
 
 p.lead { font-size: 17.5px; 
   line-height: 1.6; 
@@ -397,6 +389,21 @@ margin-bottom: 14px;
 margin-top: 14px;
 text-align: center;}
 
+h7{
+font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;  
+font-style: normal; 
+color: rgb(180, 180, 180); 
+text-rendering: optimizeLegibility; 
+line-height: 1.1; 
+margin-bottom: 14px; 
+margin-top: 20px;
+text-align: left;
+font-size: 18px; 
+padding: 0;  
+direction: ltr;
+
+}
+
 h8{
 font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;  
 font-style: normal; 
@@ -413,6 +420,46 @@ direction: ltr;
 
 }
 
+h9 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+  font-weight: normal; 
+  font-style: normal; 
+  color: rgb(190,190,190); 
+  text-rendering: optimizeLegibility; 
+  line-height: 1.1; 
+  margin-bottom: 14px; 
+  margin-top: 14px;
+  font-size: 37px; 
+}
+
+h10 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+  font-weight: normal; 
+  font-style: bold; 
+  color: #ffffff; 
+  text-rendering: optimizeLegibility; 
+  line-height: 1.1; 
+  margin-bottom: 14px; 
+  margin-top: 14px;
+  font-size: 20px;
+
+}
+
+h11 {
+font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;  
+font-style: normal; 
+color: rgb(190,190,190); 
+text-rendering: optimizeLegibility; 
+line-height: 1.1; 
+margin-bottom: 14px; 
+margin-top: 14px;
+text-align: center;
+font-size: 16px;
+margin: 0; 
+padding: 0;  
+direction: ltr;
+
+}
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { 
   font-size: 60%; 
   color: #6f6f6f; 
@@ -1303,6 +1350,92 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   float: left;
  }
 
+.panel4 {
+  background: rgba(0,0,0,0.7);  
+  margin: auto; 
+  margin-top: 10px;
+  padding: 20px 10px, 20px, 10px; 
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 250px;
+  height: 500px;
+  float: left;
+  margin-bottom: 60px;
+
+}
+
+.panel8 {
+    
+  margin: auto; 
+  margin-top: 10px;
+  padding: 20px 10px, 20px, 10px; 
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 250px;
+  height: 500px;
+  float: left;
+  margin-bottom: 60px;
+
+}
+
+.index_container{
+
+  width: 650px;
+  height: 300px;
+
+}
+.panel5 { 
+  margin: auto; 
+  margin-top: 10px;
+  padding: 20px 10px, 20px, 10px; 
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width: auto;
+  height: auto;
+  margin-bottom: 60px;
+
+}
+
+.panel6{
+  width: 300px;
+  height: 300px;
+  margin-top: 70px;
+  float: left;
+  margin-left: 170px;
+
+
+}
+
+.panel7{
+  width: auto;
+  height: auto;
+  margin-top: 50px;
+  float: right;
+
+}
+
+.distillery_info{
+  background: rgba(0,0,0,0.7);  
+  margin: auto; 
+  margin-top: -2px;
+  padding-top: 50px;
+  padding-left: 50px; 
+  padding-bottom: 50px;
+  padding-right: 50px;
+  border-radius: 5px;
+  width:735px;
+  height: 300px;
+  float: left;
+  margin-bottom: 60px;
+
+}
+
+.title{
+width: 150px;
+
+
+}
+
 .inner_comment_panel{  
   margin: auto;
   padding: 50px 50px, 50px, 50px; 
@@ -1314,8 +1447,37 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
  
 }
 
+.d_inner{
+  width: auto;
+  height: 300px;
+  float: left;
+
+}
+
+.d_inner_right {
+
+  width: auto;
+  height: 300px;
+  float: right;
+
+}
+
+.inner_text {
+
+  width: auto;
+  height: auto;
+  margin-top: 120px;
+}
+
+.d_inner_text {
+
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+}
+
 .comment_panel{
-  background: rgba(0,0,0,0.5);  
+  background: rgba(0,0,0,0.7);  
   margin: auto;
   padding-top: 50px; 
   margin-bottom: 50px; 
@@ -1323,8 +1485,8 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  width: 650px;
-  height: 350px;
+  width: 530px;
+  height: 450px;
 
 }
 
@@ -1336,7 +1498,7 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
 }
 
 .comment_list{
-  background: rgba(0,0,0,0.5);  
+  background: rgba(0,0,0,0.7);  
   margin: auto; 
   padding-left: 30px; 
   padding-right: 30px;
@@ -1346,7 +1508,7 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  width: 450px;
+  width: 510px;
   height: auto;
   color: #ffffff;
 }
@@ -1404,13 +1566,39 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
 
   margin-bottom: 20px;
   text-align: center;
+  margin-left: 130px;
 }
 
 .playlist_titles{
-  margin-left: 40px;
+  margin-left: 100px;
   width: auto;
   height: auto;
 
+}
+
+.whiskyimage{
+  background-color: #000000;
+  width: 481px;
+  height: 500px;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 60px;
+
+}
+
+.d_image{
+  background-color: #000000;
+  width: 481px;
+  height: 500px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 60px;
+
+}
+
+.map_container{
+  float: right;
+  margin-top: 10px;
 }
 
 .panel > :first-child { margin-top: 0; }
@@ -1962,17 +2150,3 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   .top-bar ul li.has-button { padding: 5px 15px; }
   .top-bar ul li .button.small { margin: 0 !important; display: inline-block; width: 100%; }
   .top-bar ul > li.has-button a.button { margin: 0; } }
-
-
-  /* 'star-rating' component */
-.rating > span {
-  display: inline-block;
-  position: relative;
-}
-.rating:hover > span:before{
-   content: "\2605"; /* Place a solid star over all the empty stars when you hover them. */
-   position: absolute;
-}
-.rating > span:hover ~ span:before {
-   content: ""; /* Remove the solid star from any siblings after the one you’re hovering. */
-}

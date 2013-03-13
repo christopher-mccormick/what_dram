@@ -44,7 +44,7 @@
 {% if results %}
 <ul>
 	{% for whisky in results %}
-	<li><a href="/whisky/{{whisky.name}}{{whisky.age}}.html">{{whisky}}</a></li>
+	<li><a href="/whisky/{{whisky.name}}.html">{{whisky}}</a></li>
 	{% endfor %}
 	{% else %}
 	<p> no whiskies found </p>

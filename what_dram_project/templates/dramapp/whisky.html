@@ -9,30 +9,90 @@
 {% block content %}
 
 
-      <div class="whisky_title"><H2> {{ whisky.name }} |<H9> {{ whisky.age }} year old</H9></H2></div>
+      <div class="whisky_title"><H2> {{ whisky.title }} |<H9> {{ whisky.age }} year old</H9></H2></div><br />
+
+  <div class="panel2">
+    <h4>Latest Comments</h4>
+    <hr />
+    {% if comment %}
+        <UL>
+        {% for comment in comment %}
+              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ comment.content_object.title }} | {{ comment.content_object.age }} year old</p3></a>
+               <p>{{ comment.comment }}</p>
+               <p2>posted by: {{ comment.user_name }}</p2>
+                <hr />
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
+
+
+  </div>
+
+
+ <div class="panel1">
+    <h4>Top Rated</h4>
+    <hr />
+    {% if comment %}
+        <UL>
+        {% for comment in comment %}
+              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ comment.content_object.title }} | {{ comment.content_object.age }} year old</p3></a>
+               <p>{{ comment.comment }}</p>
+               <p2>posted by: {{ comment.user_name }}</p2>
+                <hr />
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
+
+
+  </div>
+
 
 
 
 
 <div class="row seven">
-    <div class="ten columns centered">
-        <div id="regionlist">
-            <div id="whiksyimage"><IMG SRC="{{ whisky.image }}" /></div>
-            <div id="whiskyimage"><p></p></div>
-            <h4>{{ whisky.whiskytype }}</h4>
-            <h4>{{ whisky.distillery }}</h4>
-            <h4>{{ whisky.region }}</h4>
-            <h4>{{ whisky.tastingnotes }}</h4>
-            <h4>{{ whisky.barrelType }}</h4>
-            <a href "{{ whisky.website }}"><span><h4>Visit the {{whisky_name}} website</h4></span></a>
+
+    <div class="eleven columns centered"> 
+ <div class="panel4">
+    <div class="inner_text">
+                <h7>{{ whisky.whiskytype}}</h7>
+                <br /><br />
+                <h7>Distillery | <a href="/distillery/{{ whisky.distillery }}"><h10>{{ whisky.distillery }}</h10></a></h7>
+                <br /><br />
+                <h7>Region | <h10>{{ whisky.region }}</h10></h7>
+                <br /><br />
+                <h7>Barrel Type | <h10>{{ whisky.barrelType }}</h10></h7>
+                <br /><br />
+                <h7>Price | <h10>£{{ whisky.price }}</h10></h7>
+                <br /><br />
+                <h7>Tasting Notes:</h7>
+                <hr />
+                <h10>{{ whisky.tastingnotes }}</h10>
+                <hr />
+
+               
+            <a href="{{ whisky.website }}"><span><h11>Visit the {{whisky.title}} website</h11></span></a>
         </div>
-        <hr />
+            </div>
+
+        <div id="regionlist">
+           <div class="whiskyimage">
+            <div id="whiksyimage"><IMG SRC="{{ whisky.image }}" /></div>
+        </div>
+           
+        </div>
+    
     </div>
 
-    
+      
     {% if user.is_authenticated %}
     {% get_comment_form for whisky as form %}
-    <h4> Comments for {{ whisky_name }}</h4>
+    <h4> Submit a comment for {{ whisky.title }}</h4>
+    <br />
     <div class="comment_panel">
         <div class="inner_comment_panel">
 
@@ -55,41 +115,46 @@
 
     </div>
     {% endif %}
-</div>
+
     
 
     {% if user.is_authenticated %}
 
-<div class ="rating">
-{% load whisky %}
-    {% if_rated user whisky %}
-        {% get_rating user whisky as rating %}
-        <p>You rated this whisky {{ rating.get_rating_display }}.</p>
-    {% else %}
-        <h5>{{ whisky.title }} | {{ whisky.age }} year old</h5>
-        <h5>Rate this whisky:</h5>
-        <div class = "rating">
-            <ul>
-            <li><a href="{{ dram_app_rate }}?rating=5"><span><p>☆</p></span></a></li>
-            <li><a href="{{ dram_app_rate }}?rating=4"><span><p>☆</p></span></a></li>
-            <li><a href="{{ dram_app_rate }}?rating=3"><span><p>☆</p></span></a></li>
-            <li><a href="{{ dram_app_rate }}?rating=2"><span><p>☆</p></span></a></li>
-            <li><a href="{{ dram_app_rate }}?rating=1"><span><p>☆</p></span></a></li>
-        </ul>
-        </div>
-    {% endif_rated %}
-</div>
+    <h4>Ratings</h4>
+
+   {# javascripts required by StarVoteForm #}
+<link href="{{ STATIC_URL }}css/rating/star.css" rel="stylesheet" title="indexstyle" type="text/css" />
+<script type="text/javascript" src="{{ STATIC_URL }}javascripts/jquery.MetaData.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}javascripts/jquery.rating.js"></script>
+
+{% load ratings_tags %}
+
+{% get_rating_form for whisky as rating_form %}
+<form action="{% url ratings_vote %}" method="post">
+    {% csrf_token %}
+    {{ rating_form }}
+<input type="submit" value="Vote &rarr;"></p>
+</form>
+
+{% get_rating_score for whisky as score %}
+{% if score %}
+    <p>Average score: {{ score.average|floatformat }}</p>
+    <p>Number of votes: {{ score.num_votes }}</p>
+{% else %}
+    <p>How sad: nobody voted {{ whisky.name }}</p>
+{% endif %}
 
 </div>
 {% endif %}
 <hr \>
+</div>
 <h4> Recent Commments </h4>
 <div class="comment_list">
 
 {% get_comment_count for whisky as comment_count %}
-
+    
     {% render_comment_list for whisky %}
-   
+
 </div>
  {% endblock %}
 
