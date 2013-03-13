@@ -68,11 +68,15 @@
     {% else %}
         <h5>{{ whisky.title }} | {{ whisky.age }} year old</h5>
         <h5>Rate this whisky:</h5>
-            <p><a href="{{ dram_app_rate }}?rating=1">1 Star</a> |
-            <a href="{{ dram_app_rate }}?rating=2">2 Stars</a> |
-            <a href="{{ dram_app_rate }}?rating=3">3 Stars</a> |
-            <a href="{{ dram_app_rate }}?rating=4">4 Stars</a> |
-            <a href="{{ dram_app_rate }}?rating=5">5 Stars</a></p>
+        <div class = "rating">
+            <ul>
+            <li><a href="{{ dram_app_rate }}?rating=5"><span><p>☆</p></span></a></li>
+            <li><a href="{{ dram_app_rate }}?rating=4"><span><p>☆</p></span></a></li>
+            <li><a href="{{ dram_app_rate }}?rating=3"><span><p>☆</p></span></a></li>
+            <li><a href="{{ dram_app_rate }}?rating=2"><span><p>☆</p></span></a></li>
+            <li><a href="{{ dram_app_rate }}?rating=1"><span><p>☆</p></span></a></li>
+        </ul>
+        </div>
     {% endif_rated %}
 </div>
 
