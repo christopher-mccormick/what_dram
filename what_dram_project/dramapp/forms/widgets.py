@@ -122,6 +122,9 @@ class StarWidget(BaseWidget):
             alert('New vote: ' + value);
         });
     """
+
+       {# javascripts required by StarVoteForm #}
+
     def __init__(self, min_value, max_value, step, instance=None,
         can_delete_vote=True, key='', read_only=False,
         template='ratings/star_widget.html', attrs=None):

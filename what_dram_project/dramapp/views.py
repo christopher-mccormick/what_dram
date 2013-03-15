@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from dramapp.models import UserForm, UserProfileForm, Whisky, Distillery, Rating
+from dramapp.models import UserForm, UserProfileForm, Whisky, Distillery
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -9,26 +9,20 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 from django.contrib.comments.models import Comment
+from ratings.handlers import ratings, RatingHandler
 
+ratings.register(Whisky, )
 
 def index(request):
-# select the appropriate template to use
     template = loader.get_template('dramapp/index.html')
     whisky_list = Whisky.objects.all()
     # add the cat_url data to each category
     for whisky in whisky_list:
-        whisky_name = whisky.name #+ whisky.age
+        whisky_name = whisky.name
         whisky.url = encode_whisky(whisky_name)
-        # whisky_age = whisky.age
-    # Put the data into the context
-    #context = RequestContext(request,{ 'whisky_list': whisky_list })
     distillery_list = Distillery.objects.all()
     comment_list = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:5]
     context = RequestContext(request, {'distillery_list': distillery_list, 'whisky_list': whisky_list, 'comment_list': comment_list})
-
-    # create and define the context. We don't have any context at the moment
-    # but later on we will be putting data in the context which the template engine
-    # will use when it renders the template into a page.
 
     # render the template using the provided context and return as http response.
     return HttpResponse(template.render(context))
@@ -64,7 +58,7 @@ def register(request):
             user = uform.save()
             # form brings back a plain text string, not an encrypted password
             pw = user.password
-            # thus we need to use set password to encrypt the password string
+            # encrypt the password string
             user.set_password(pw)
             user.save()
             profile = pform.save(commit=False)
@@ -134,8 +128,6 @@ def whisky(request, whisky_name_url):
     context_dict = {'whisky_name_url': whisky_name_url,
                     'whisky_name': whisky_name}
     # Select the Category object given its name.
-    # In models, we defined name to be unique,
-    # so there so only be one, if one exists.
     whisk = Whisky.objects.get(name=whisky_name)
     context_dict['whisky'] = whisk
 
@@ -182,8 +174,6 @@ def distilleries_list(request, distillery_name_url):
     context_dict = {'distillery_name_url': distillery_name_url,
                     'distillery_name': distillery_name}
     # Select the Category object given its name.
-    # In models, we defined name to be unique,
-    # so there so only be one, if one exists.
     whisk_list = Whisky.objects.get(title__icontains=distillery_name)
     context_dict['whisky'] = whisk_list
 
@@ -203,23 +193,3 @@ def encode_distillery(distillery_name):
 def decode_distillery(distillery_url):
     # returns the category name given the category url portion
     return distillery_url.replace('_', ' ')
-
-def rate(request, whisky_id):
-    whisky = get_object_or_404(Whisky, pk=whisky_id)
-    if 'rating' not in request.GET or request.GET['rating'] not in ('1', '2', '3', '4', '5'):
-        return HttpResponseRedirect(whisky.get_absolute_url())
-
-    try:
-        rating = Rating.objects.get(user__pk=request.user.id,
-                                    whisky__pk=whisky.id)
-
-    except Rating.DoesNotExist:
-        rating = Rating(user=request.user,
-                        whisky=whisky)
-    rating.rating = int(request.GET['rating'])
-    rating.save()
-    return HttpResponseRedirect(whisky.get_absolute_url())
-rate = login_required(rate)
-
-from ratings.handlers import ratings
-ratings.register(Whisky)

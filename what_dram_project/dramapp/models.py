@@ -5,12 +5,8 @@ from dramapp import managers
 import datetime
 from django.db.models import Sum
 
-# Create your models here.
-
 class UserProfile(models.Model):
-    # This field is required.
     user = models.OneToOneField(User)
-    # These fields are optional
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -72,36 +68,6 @@ class Whisky(models.Model):
 
     def __unicode__(self):
         return self.name
-
-
-class Rating(models.Model):
-    RATING_1 = 1
-    RATING_2 = 2
-    RATING_3 = 3
-    RATING_4 = 4
-    RATING_5 = 5
-    RATING_CHOICES = ((RATING_1, '1 Star'),
-                      (RATING_2, '2 Stars'),
-                      (RATING_3, '3 Stars'),
-                      (RATING_4, '4 Stars'),
-                      (RATING_5, '5 Stars'))
-    whisky = models.ForeignKey(Whisky)
-    user = models.ForeignKey(User, related_name='dramapp_rating')
-    rating = models.IntegerField(choices=RATING_CHOICES)
-    date = models.DateTimeField()
-    
-    def __unicode__(self):
-        return "%s rating %s (%s)" % (self.user, self.whisky, self.get_rating_display())
-    
-    def save(self):
-        if not self.id:
-            self.date = datetime.datetime.now()
-        super(Rating, self).save()
-    
-    def get_score(self):
-        return self.rating_set.aggregate(Sum('rating'))
-
-
 
 class Search(models.Model):
     query = forms.CharField(max_length=30, required=False)

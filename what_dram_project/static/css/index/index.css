@@ -1423,7 +1423,7 @@ div.alert-box a.close:hover, div.alert-box a.close:focus { opacity: 0.4; }
   padding-bottom: 50px;
   padding-right: 50px;
   border-radius: 5px;
-  width:735px;
+  width:740px;
   height: 300px;
   float: left;
   margin-bottom: 60px;
@@ -1486,7 +1486,7 @@ width: 150px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 530px;
-  height: 450px;
+  height: 500px;
 
 }
 
