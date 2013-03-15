@@ -1,0 +1,8 @@
+
+    {% get_rating_score for whisky as score %}
+{% if score %}
+    <p>Average score: {{ score.average|floatformat }}</p>
+    <p>Number of votes: {{ score.num_votes }}</p>
+{% else %}
+    <p>How sad: nobody voted {{ whisky.name }}</p>
+{% endif %}

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from dramapp.models import UserForm, UserProfileForm, Whisky, Distillery
+from dramapp.models import UserForm, UserProfileForm, Whisky, Distillery, User
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -9,7 +9,11 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
 from django.contrib.comments.models import Comment
-from ratings.handlers import ratings, RatingHandler
+from ratings.handlers import ratings
+from ratings.models import Score
+
+
+
 
 ratings.register(Whisky, )
 
@@ -22,7 +26,8 @@ def index(request):
         whisky.url = encode_whisky(whisky_name)
     distillery_list = Distillery.objects.all()
     comment_list = Comment.objects.filter(is_public=True, is_removed=False).order_by('submit_date').reverse()[:5]
-    context = RequestContext(request, {'distillery_list': distillery_list, 'whisky_list': whisky_list, 'comment_list': comment_list})
+    rating_list = Score.objects.filter().order_by('average').reverse()[:5]
+    context = RequestContext(request, {'distillery_list': distillery_list, 'whisky_list': whisky_list, 'comment_list': comment_list, 'rating_list': rating_list})
 
     # render the template using the provided context and return as http response.
     return HttpResponse(template.render(context))
@@ -106,18 +111,18 @@ def user_logout(request):
     # Redirect back to index page.
     return HttpResponseRedirect('../')
 
-    from bing_search import run_query
+    #from bing_search import run_query
 
 
-def search(request):
-    context = RequestContext(request)
-    result_list = []
-    if request.method == 'POST':
-        query = request.POST['query'].strip()
-        if query:
-            result_list = run_query(query)
+#def search(request):
+#    context = RequestContext(request)
+#    result_list = []
+#    if request.method == 'POST':
+#        query = request.POST['query'].strip()
+#        if query:
+#            result_list = run_query(query)
 
-    return render_to_response('dramapp/search.html', {'result_list': result_list}, context)
+#    return render_to_response('dramapp/search_results.html', {'result_list': result_list}, context)
 
 
 def whisky(request, whisky_name_url):
@@ -160,22 +165,24 @@ def search(request):
         results = Whisky.objects.filter(qset).distinct()
     else:
         results = []
-
-    return render_to_response("dramapp/search.html", {
-        "results": results,
-        "query": query
-    })
+    return render_to_response('dramapp/search.html', {'results': results, 'query': query})
+                            
 
 
 def distilleries_list(request, distillery_name_url):
     template = loader.get_template('dramapp/distilleries.html')
-
     distillery_name = decode_distillery(distillery_name_url)
     context_dict = {'distillery_name_url': distillery_name_url,
                     'distillery_name': distillery_name}
+
+   # w_list = Whisky.objects.all()
+   # for whisky in w_list:
+   #     w_dist = whisky.distillery
+    #    whisk_list = Whisky.objects.filter(dist__distillery.name=distillery_name)
+    #    context_dict['whisky'] = whisk_list
+    
     # Select the Category object given its name.
-    whisk_list = Whisky.objects.get(title__icontains=distillery_name)
-    context_dict['whisky'] = whisk_list
+    
 
     dist = Distillery.objects.get(name=distillery_name)
     context_dict['distillery'] = dist
@@ -193,3 +200,25 @@ def encode_distillery(distillery_name):
 def decode_distillery(distillery_url):
     # returns the category name given the category url portion
     return distillery_url.replace('_', ' ')
+
+@login_required
+def profile(request):
+        context = RequestContext(request)
+        
+        u = User.objects.get(username=request.user)
+        try:
+
+                up = UserProfile.objects.get(user=u)
+        except:
+                up = None
+        context_dict = {'u': u}
+
+        comment_list = Comment.objects.filter(user_name=u)
+        context_dict['comment_list'] = comment_list       
+        context = RequestContext(request, context_dict)
+        return render_to_response('dramapp/profile.html', {'user':u, 'userprofile': up }, context)
+
+
+
+
+

@@ -23,6 +23,10 @@ Django Generic Ratings 0.6
 
 	/what_dram/what_dram_project/
 
+-The Admin interface can be accessed using the username: notreally and the passowrd: whatdram
+
+-An ideal profile for viewing the system is username: Hector and password: hector
+
 - The application should ideally be run using a 1440 x 900 resolution screen.
 
 - If a user wished to use the Spotify playlist widget they must have Spotify installed on their computer and have an account.  As this is a minor piece of functionality it is not necessary to go through the process of acquiring these credentials if they do not already exist.

@@ -43,12 +43,15 @@
  <div class="panel1">
     <h4>Top Rated</h4>
     <hr />
-    {% if comment_list %}
+    {% if rating_list %}
         <UL>
-        {% for comment in comment_list %}
-              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ comment.content_object.title }} | {{ comment.content_object.age }} year old</p3></a>
-               <p>{{ comment.comment }}</p>
-               <p2>posted by: {{ comment.user_name }}</p2>
+        {% for rating in rating_list %}
+              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ rating.content_object.title }} | {{ rating.content_object.age }} year old</p3></a>
+              <br/>
+              <h5>{{ rating.average }}</h5>
+              <p2>Number of votes : {{ rating.num_votes }}</p2>
+               
+               
                 <hr />
         {% endfor %}
         </UL>
@@ -57,7 +60,11 @@
 {% endif %}
 
 
+
+
   </div>
+
+  
 
  <div class="slider_panel">
       <div id="slider">
@@ -69,32 +76,26 @@
     </div>
 
 
-
-
-    <div class="eight columns centered"> 
- <div class="panel8">
-   
-       
-        <div class="playlist">
-          <div class="title">
-        <h5>Soundtrack</h5>
-        <center><p>Scotch On the Rocks</p></center>
-      </div>
+    
+      
+ 
+      <div class="playlist">
+          
+        <h4>The Perfect Whisky Soundtrack</h4>
+        <centre><p>Scotch On the Rocks</p></centre>
 
         <iframe src="https://embed.spotify.com/?uri=spotify:user:113259557:playlist:5EVu8Hw21MoDF5mmbpWjRp&view=coverart" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
-        </div>
-            </div>
-           <div class="panel6">
-            <h5> Whisky of the day</h5>
+      </div>
 
-        <img src="{{ STATIC_URL }}imgs/ArdbegTenYearOld.jpg" />
-        
-           
-        </div>
-    
-    </div>
-      
-      
+ 
+   
+ 
+    <div class="whiskday">
+      <h3>Whisky of the day</h3>
+      <a href="/whisky/Auchentoshan12"><img src="{{ STATIC_URL }}imgs/auchentoshan.jpg" /></a>
+   
+  </div>
+   
 
 
     

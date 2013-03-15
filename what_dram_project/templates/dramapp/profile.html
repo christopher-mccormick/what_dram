@@ -1,0 +1,45 @@
+{% extends 'dramapp/base.html' %}
+    
+{% block title %}WhatDram | Homepage{% endblock %}
+
+{% block content %}
+<H1>Hello | {{user.username}}</H1>
+
+  <div class="profile_container">
+    <div class="profile">
+        <img src="{{ STATIC_URL }}imgs/whatdram_small.jpg" />
+    </div>
+
+    <div class="profile_content">
+    	<h7>Name | <h10>{{ user.first_name }} {{ user.last_name }}</h10></h7>
+    	<br/><br/>
+    	<h7>Email | <h10>{{ user.email }}</h10></h7>
+    	<br/><br/>
+    	<h7>Your Comments</h7>
+    	<hr/>
+    	 {% if comment_list %}
+        <UL>
+        {% for comment in comment_list %}
+              <a HREF="/whisky/{{ comment.content_object.name }}"><p3>{{ comment.content_object.title }} | {{ comment.content_object.age }} year old</p3></a>
+               <p>{{ comment.comment }}</p>
+               <p2>posted by: {{ comment.user_name }}</p2>
+                <hr />
+        {% endfor %}
+        </UL>
+{% else %}
+        <P>No categories at present.</P>
+{% endif %}
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+<a href="{{userprofile.website}}">{{userprofile.website}}</a>
+
+
+{% endblock %}
