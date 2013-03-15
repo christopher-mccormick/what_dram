@@ -25,6 +25,8 @@ Django Generic Ratings 0.6
 
 - The application should ideally be run using a 1440 x 900 resolution screen.
 
+- If a user wished to use the Spotify playlist widget they must have Spotify installed on their computer and have an account.  As this is a minor piece of functionality it is not necessary to go through the process of acquiring these credentials if they do not already exist.
+
 - The project github repository is available at: https://github.com/cmccor/what_dram
 
 	- This repository can be cloned and used to run the code as described above.
