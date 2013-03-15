@@ -22,7 +22,7 @@ class VotedByView(DetailView):
         )
         
     Two context variables will be present in the template:
-        - *object*: the voted article
+        - *object*: the voted article.
         - *votes*: all the Vote instances for that article
         
     The default template suffix is ``'_voted_by'``, and so the template
